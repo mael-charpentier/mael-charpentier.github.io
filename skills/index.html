@@ -10,21 +10,18 @@ socialActivate: true
   <h2 class="skill-header">{{ t.skills_title }}</h2>
 
   {%- comment -%}
-    The icons are read from the folder : dropping a file in is enough to add one.
-    The name shown comes from _data/skills.yml (key = name of the file).
+    The icons come from _data/skills.yml : the folder cannot be listed, Polyglot
+    excludes assets/ from the French pass so it looks empty there.
   {%- endcomment -%}
   <div class="skills-wrapper">
-        {% for image in site.static_files %}
-            {% if image.path contains "/assets/images/skills/" %}
-            {% assign label = site.data.skills[image.basename] | default: image.basename %}
-                <img
-                  src="{{ site.url }}{{ image.path }}"
-                  alt="{{ label }}"
-                  title="{{ label }}"
-                  loading="lazy"
-                  class="icon icon-card"
-                />
-            {% endif %}
+        {% for icon in site.data.skills.all %}
+            <img
+              src="{{ site.url }}/assets/images/skills/{{ icon[0] }}"
+              alt="{{ icon[1] }}"
+              title="{{ icon[1] }}"
+              loading="lazy"
+              class="icon icon-card"
+            />
         {% endfor %}
   </div>
 </section>

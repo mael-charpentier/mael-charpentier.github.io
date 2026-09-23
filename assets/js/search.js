@@ -36,6 +36,17 @@
       const card = document.createElement("div");
       card.className = "card-container card search-result";
 
+      // Same card as the section pages : logo, section, title, summary.
+      if (post.image) {
+        const picture = document.createElement("img");
+        picture.src = post.image;
+        picture.alt = post.imageAlt || "";
+        picture.title = post.imageAlt || "";
+        picture.loading = "lazy";
+        picture.className = "card-pic";
+        card.appendChild(picture);
+      }
+
       const section = document.createElement("p");
       section.className = "search-result-section";
       section.textContent = post.section + " — " + post.date;

@@ -61,4 +61,4 @@ filter:
   label: "Filtrer"
   placeholder: "Filtrer ces cartes"
   none: "Aucune carte ne correspond."
-lang_switch: "English version"
+lang_switch: "English"

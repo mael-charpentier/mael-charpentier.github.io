@@ -1,24 +1,30 @@
-# Name shown (alt and title) for the icons of assets/images/skills/ and
-# assets/images/skills_best/, by file name without the extension.
-# An icon with no entry here is named after its file : dropping a file in the
-# folder is enough to add it, and a line is only needed when the name is written
-# differently (cpp -> C++).
-bash: "Bash"
-c: "C"
-cpp: "C++"
-css: "CSS"
-git: "Git"
-haskell: "Haskell"
-html5: "HTML"
-java: "Java"
-javascript: "JavaScript"
-julia: "Julia"
-latex: "LaTeX"
-mysql: "MySQL"
-php: "PHP"
-python: "Python"
-r: "R"
-rust: "Rust"
-sql: "SQL"
-typescript: "TypeScript"
-xml: "XML"
+# Icons of the Skills page (all) and of the home page (best).
+# The key is the file name in assets/images/skills/ or assets/images/skills_best/,
+# the value is the name shown (alt and title).
+#
+# The list used to be read from the folder itself, but Polyglot excludes assets/
+# from the French pass, so the folder looks empty there : the icons have to be
+# listed here. bin/check-content.py fails when a file and this list disagree.
+all:
+  bash.png: "Bash"
+  c.svg: "C"
+  cpp.svg: "C++"
+  css.svg: "CSS"
+  git.svg: "Git"
+  haskell.svg: "Haskell"
+  html5.svg: "HTML"
+  java.svg: "Java"
+  javascript.svg: "JavaScript"
+  julia.svg: "Julia"
+  latex.svg: "LaTeX"
+  mysql.svg: "MySQL"
+  php.png: "PHP"
+  python.svg: "Python"
+  r.png: "R"
+  rust.svg: "Rust"
+  sql.png: "SQL"
+  typescript.svg: "TypeScript"
+  xml.png: "XML"
+best:
+  latex.svg: "LaTeX"
+  python.svg: "Python"

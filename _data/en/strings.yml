@@ -62,4 +62,4 @@ filter:
   label: "Filter"
   placeholder: "Filter these cards"
   none: "No card matches."
-lang_switch: "Version française"
+lang_switch: "Français"

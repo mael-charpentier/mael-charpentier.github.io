@@ -89,6 +89,19 @@ def check_strings(files):
     return languages
 
 
+def check_skills():
+    """The icon folders and _data/skills.yml must agree : the French build lists
+    no folder, so an icon missing from the data file is an icon missing there."""
+    data = yaml.safe_load((ROOT / "_data/skills.yml").read_text(encoding="utf-8"))
+    for key, folder in (("all", "assets/images/skills"), ("best", "assets/images/skills_best")):
+        listed = set(data.get(key, {}))
+        present = {f.name for f in (ROOT / folder).iterdir() if f.is_file()}
+        for name in sorted(listed - present):
+            problems.append(f"_data/skills.yml ({key}): {name} is not in {folder}/")
+        for name in sorted(present - listed):
+            problems.append(f"{folder}/{name}: not listed in _data/skills.yml ({key}), it will not be shown")
+
+
 def post_urls():
     """URL Jekyll gives to each post (the case of the file name is kept)."""
     urls = {}
@@ -118,6 +131,9 @@ def main():
             target = link.replace("{{ site.url }}", "").split("#")[0]
             if not target.startswith("/") or target.startswith("//"):
                 continue
+            # A path built by Liquid ({{ icon[0] }}) cannot be checked here.
+            if "{" in target:
+                continue
             if target.startswith("/assets/"):
                 if not (ROOT / target.lstrip("/")).exists():
                     problems.append(f"{rel}: missing file {target}")
@@ -126,6 +142,7 @@ def main():
                     problems.append(f"{rel}: dead internal link {target}")
 
     languages = check_strings(files)
+    check_skills()
 
     for line in warnings:
         print("note   :", line)

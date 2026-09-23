@@ -11,17 +11,14 @@
       <h2 class="skill-header">{{ t.home.skills_title }}</h2>
 
       <div class="skills-wrapper">
-            {% for image in site.static_files %}
-                {% if image.path contains "/assets/images/skills_best/" %}
-                    {% assign label = site.data.skills[image.basename] | default: image.basename %}
-                        <img
-                        src="{{ site.url }}{{ image.path }}"
-                        alt="{{ label }}"
-                        title="{{ label }}"
-                        loading="lazy"
-                        class="icon icon-card"
-                        />
-                {% endif %}
+            {% for icon in site.data.skills.best %}
+                <img
+                src="{{ site.url }}/assets/images/skills_best/{{ icon[0] }}"
+                alt="{{ icon[1] }}"
+                title="{{ icon[1] }}"
+                loading="lazy"
+                class="icon icon-card"
+                />
             {% endfor %}
       </div>
     </section>

@@ -14,6 +14,8 @@ sitemap: false
 "title": {{ post[titleKey] | default: post.title | jsonify }},
 "url": {{ post.url | jsonify }},
 "section": {{ post.categories | first | jsonify }},
+"image": {{ post.image | jsonify }},
+"imageAlt": {{ post.imageAlt | jsonify }},
 "date": {{ post.date | date: "%Y-%m-%d" | jsonify }},
 "excerpt": {{ post.excerpt | strip_html | normalize_whitespace | strip | jsonify }},
 "text": {{ post.content | strip_html | normalize_whitespace | truncatewords: 150 | jsonify }}

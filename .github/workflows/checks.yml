@@ -19,13 +19,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Content checks
         run: python3 bin/check-content.py
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.3'
           bundler-cache: true
+      # Parses every template with Liquid : a syntax error is reported with its
+      # file and line instead of a Jekyll backtrace.
+      - name: Liquid syntax
+        run: bundle exec ruby bin/check-liquid.rb
       - name: Build
         run: bundle exec jekyll build
         env:
@@ -47,7 +51,7 @@ jobs:
           fail: false
       - name: Report dead links in an issue
         if: github.event_name == 'schedule' && steps.lychee.outputs.exit_code != 0
-        uses: peter-evans/create-issue-from-file@v5
+        uses: peter-evans/create-issue-from-file@v6
         with:
           title: Liens externes morts
           content-filepath: ./lychee/out.md
