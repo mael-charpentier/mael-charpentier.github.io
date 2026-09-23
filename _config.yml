@@ -18,4 +18,5 @@ defaults:
 
 exclude:
   - README.md
+  - archive-links.txt
   - LICENSE
