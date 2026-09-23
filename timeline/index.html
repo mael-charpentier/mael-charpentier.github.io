@@ -1,17 +1,23 @@
 ---
 layout: timeline
+id: timeline
 ---
-
-{% assign sections = "experience,conferences,teaching,projects,education,awards" | split: ',' %}
-{% for index in (0..5) %}
-        {% assign nameSection = sections[index] %}
+{%- comment -%}
+  Data of the timeline (ApexCharts) : one array per section, in the order of
+  _data/nav.yml (posts: true, rank).
+  jsonify escapes the apostrophes, which would otherwise break the JavaScript.
+{%- endcomment -%}
+{% assign t = site.data[site.active_lang].strings %}
+{% capture titleKey %}title_{{ site.active_lang }}{% endcapture %}
+{% assign sections = site.data.nav | where: "posts", true | sort: "rank" %}
+{% for item in sections %}
         [
-        {% for post in site.categories[nameSection] %}
+        {% for post in site.categories[item.id] %}
           {
-            type: '{{ nameSection }}',
-            date: '{{ post.datePost }}',
-            title: '{{ post.title }}',
-            url: '{{ post.url }}',
+            type: {{ t.nav[item.id] | jsonify }},
+            date: {{ post.datePost | jsonify }},
+            title: {{ post[titleKey] | default: post.title | jsonify }},
+            url: {{ post.url | jsonify }},
           },
         {% endfor %}
         ],

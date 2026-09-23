@@ -1,0 +1,64 @@
+# Interface text, English version. See _data/fr/strings.yml.
+# Usage : {% assign t = site.data[site.active_lang].strings %} then {{ t.more_info }}.
+nav:
+  about: "About"
+  education: "Education"
+  experience: "Experience"
+  teaching: "Teaching"
+  conferences: "Conferences"
+  awards: "Awards"
+  projects: "Projects"
+  skills: "Skills"
+  search: "Search"
+  timeline: "Timeline"
+section:
+  education: "My Education"
+  experience: "My Experiences"
+  teaching: "My Teaching"
+  conferences: "My Talks and Posters"
+  awards: "My Awards"
+  projects: "My projects"
+home:
+  education: "My education"
+  experience: "My recent experiences"
+  teaching: "My teaching"
+  conferences: "My recent talks and posters"
+  awards: "My recent awards"
+  projects: "My recent personal projects"
+  about_title: "More about me :"
+  skills_title: "Top Skills"
+  cv_fr: "My CV (french version)"
+  cv_en: "My CV (english version)"
+skills_title: "The languages I know :"
+more_info: "More info"
+back_to_top: "Back to top"
+open_menu: "Open the menu"
+last_updated: "Last updated:"
+# {d} day, {m} month, {y} year : Liquid has no translated month names.
+date_format: "{m} {d}, {y}"
+months: ["January", "February", "March", "April", "May", "June", "July",
+         "August", "September", "October", "November", "December"]
+footer_credits: >-
+  Template inspired by <a href="https://github.com/Ksound22/developer-portfolio">developer-portfolio</a>.
+  Timeline built with <a href="https://apexcharts.com/">ApexCharts</a>.
+  Icons from <a href="https://www.flaticon.com/">Flaticon</a>,
+  <a href="https://ionic.io/ionicons">Ionicons</a> and <a href="https://icons8.com/">Icons8</a>.
+search:
+  label: "Search"
+  placeholder: "Search the site"
+  title: "Search"
+  empty: "Type a word to search the site."
+  none: "No result."
+  one: "1 result."
+  many: "{n} results."
+sort:
+  label: "Sort by"
+  recent: "Most recent"
+  oldest: "Oldest"
+  title_az: "Title (A-Z)"
+  title_za: "Title (Z-A)"
+filter:
+  label: "Filter"
+  placeholder: "Filter these cards"
+  none: "No card matches."
+lang_switch: "Version française"

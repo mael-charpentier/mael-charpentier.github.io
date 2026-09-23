@@ -1,0 +1,54 @@
+# Automatic checks : does the site build, and are the links still alive ?
+# - on every pull request and every push (outside the deployment branch) ;
+# - every Monday, to catch dead external links without doing anything.
+name: Checks
+
+on:
+  push:
+    branches-ignore: [main]
+  pull_request:
+  schedule:
+    - cron: "0 6 * * 1" # every Monday at 6 am UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write # to open the dead link report
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Content checks
+        run: python3 bin/check-content.py
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+      - name: Build
+        run: bundle exec jekyll build
+        env:
+          JEKYLL_ENV: production
+      # Internal links, images, anchors : an error here really breaks the site.
+      - name: Internal links and images
+        run: |
+          bundle exec htmlproofer ./_site \
+            --disable-external \
+            --ignore-empty-alt false \
+            --no-enforce-https \
+            --checks Links,Images,Scripts
+      # External links : informative only (many sites block robots).
+      - name: External links
+        id: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --no-progress --max-concurrency 4 --accept 200,206,999 './_site/**/*.html'
+          fail: false
+      - name: Report dead links in an issue
+        if: github.event_name == 'schedule' && steps.lychee.outputs.exit_code != 0
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: Liens externes morts
+          content-filepath: ./lychee/out.md
+          labels: maintenance

@@ -1,0 +1,47 @@
+# Navigation menu. The label of each entry comes from _data/<lang>/strings.yml
+# (key nav.<id>), so the list is not repeated once per language.
+# posts: true marks a section that has a _posts folder ; rank is its place on the
+# home page and on the timeline. bin/new-post.sh adds an entry here when it is
+# given a section that does not exist yet.
+- id: about
+  url: /#top
+  section: /
+- id: education
+  url: /education/index.html
+  section: /education/
+  posts: true
+  rank: 5
+- id: experience
+  url: /experience/index.html
+  section: /experience/
+  posts: true
+  rank: 1
+- id: teaching
+  url: /teaching/index.html
+  section: /teaching/
+  posts: true
+  rank: 3
+- id: conferences
+  url: /conferences/index.html
+  section: /conferences/
+  posts: true
+  rank: 2
+- id: awards
+  url: /awards/index.html
+  section: /awards/
+  posts: true
+  rank: 6
+- id: projects
+  url: /projects/index.html
+  section: /projects/
+  posts: true
+  rank: 4
+- id: skills
+  url: /skills/index.html
+  section: /skills/
+- id: timeline
+  url: /timeline/index.html
+  section: /timeline/
+- id: search
+  url: /search/index.html
+  section: /search/

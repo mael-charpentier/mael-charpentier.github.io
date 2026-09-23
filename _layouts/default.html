@@ -2,14 +2,38 @@
 Créateur : Maël Charpentier
 Date : 19/jan/2022
 -->
+{% assign t = site.data[site.active_lang].strings %}
+{%- comment -%}
+  URL of the page without the language prefix : used by the hreflang links and by
+  the language switcher, the only links Polyglot must not rewrite.
+{%- endcomment -%}
+{% assign bareUrl = page.url %}
+{% assign activePrefix = "/" | append: site.active_lang | append: "/" %}
+{% if site.active_lang != site.default_lang and bareUrl contains activePrefix %}
+  {% assign bareUrl = bareUrl | remove_first: activePrefix | prepend: "/" %}
+{% endif %}
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: 'en' }}">
+<html lang="{{ site.active_lang }}">
   <head>
     <meta charset="UTF-8">
-    <title>{{ page.title | default: site.title }}</title>
+    {%- comment -%} Section pages have an id : their title is translated. {%- endcomment -%}
+    {% if page.id and t.nav[page.id] %}
+    <title>{{ t.nav[page.id] }} - Maël Charpentier</title>
+    {% else %}
+    {%- capture titleKey -%}title_{{ site.active_lang }}{%- endcapture -%}
+    <title>{{ page[titleKey] | default: page.title | default: site.title }}</title>
+    {% endif %}
     <meta name="description" content="{{ page.description | default: site.description }}">
     <meta name="author" content="Maël Charpentier">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Same page in the other languages (SEO) -->
+    {% for lang in site.languages %}
+      {% if lang == site.default_lang %}{% assign altUrl = bareUrl %}
+      {% else %}{% capture altUrl %}/{{ lang }}{{ bareUrl }}{% endcapture %}{% endif %}
+      <link rel="alternate" hreflang="{{ lang }}" {% static_href %}href="{{ site.url }}{{ altUrl }}"{% endstatic_href %}>
+    {% endfor %}
+    <link rel="alternate" hreflang="x-default" {% static_href %}href="{{ site.url }}{{ bareUrl }}"{% endstatic_href %}>
 
     <!--CSS Styles -->
     <link rel="stylesheet" href="{{ site.url }}/assets/css/styles.css" />
@@ -34,27 +58,38 @@ Date : 19/jan/2022
     <!-- Navbar -->
     <nav id="navigator">
       <h1><a href='{{ site.url }}/'>Maël Charpentier</a></h1>
-      {% assign navTitles = "About,Education,Experience,Teaching,Conferences,Awards,Projects,Skills,Timeline" | split: ',' %}
-      {% assign navPaths = "/#top,/education/index.html,/experience/index.html,/teaching/index.html,/conferences/index.html,/awards/index.html,/projects/index.html,/skills/index.html,/timeline/index.html" | split: ',' %}
-      {% assign navSections = "/,/education/,/experience/,/teaching/,/conferences/,/awards/,/projects/,/skills/,/timeline/" | split: ',' %}
       <ul id="menu">
-        {% for index in (0..8) %}
-          {% assign section = navSections[index] %}
+        {% for item in site.data.nav %}
           {% assign isCurrent = false %}
-          {% if section == '/' %}
-            {% if page.url == '/' %}{% assign isCurrent = true %}{% endif %}
-          {% elsif page.url contains section %}
+          {% if item.section == '/' %}
+            {% if bareUrl == '/' %}{% assign isCurrent = true %}{% endif %}
+          {% elsif bareUrl contains item.section %}
             {% assign isCurrent = true %}
           {% endif %}
           <li>
-            <a href="{{ site.url }}{{ navPaths[index] }}"
+            <a href="{{ site.url }}{{ item.url }}"
                class="nav-link{% if isCurrent %} active{% endif %}"
                {% if isCurrent %}aria-current="page"{% endif %}
-               onclick="closeBurger();">{{ navTitles[index] }}</a>
+               onclick="closeBurger();">{{ t.nav[item.id] }}</a>
           </li>
         {% endfor %}
+        {%- comment -%}
+          Language switcher : the link must point to the same page in the other
+          language, so Polyglot must not rewrite it.
+        {%- endcomment -%}
+        {% for lang in site.languages %}
+          {% unless lang == site.active_lang %}
+            {% if lang == site.default_lang %}{% assign switchUrl = bareUrl %}
+            {% else %}{% capture switchUrl %}/{{ lang }}{{ bareUrl }}{% endcapture %}{% endif %}
+            <li>
+              <a class="nav-link nav-lang" lang="{{ lang }}" hreflang="{{ lang }}"
+                 {% static_href %}href="{{ switchUrl }}"{% endstatic_href %}
+                 onclick="closeBurger();">{{ t.lang_switch }}</a>
+            </li>
+          {% endunless %}
+        {% endfor %}
       </ul>
-      <button class="burger-menu" id="burger-menu" type="button" aria-label="Open the menu" aria-expanded="false" aria-controls="menu">
+      <button class="burger-menu" id="burger-menu" type="button" aria-label="{{ t.open_menu }}" aria-expanded="false" aria-controls="menu">
         <ion-icon class="bars" id="burger-bars" name="menu-outline"></ion-icon>
         <ion-icon class="close" id="burger-close" name="close-outline"></ion-icon>
       </button>
@@ -85,19 +120,20 @@ Date : 19/jan/2022
     {% endif %}
 
     <!-- Scroll to top -->
-    <button class="scroll-up" id="scroll-up" type="button" title="Back to top">
-      <span class="visually-hidden">Back to top</span>
+    <button class="scroll-up" id="scroll-up" type="button" title="{{ t.back_to_top }}">
+      <span class="visually-hidden">{{ t.back_to_top }}</span>
     </button>
 
     <!-- Footer section -->
     <footer>
-      <p class="footer-updated">Last updated: {{ site.time | date: "%B %-d, %Y" }}</p>
-      <p>
-        Template inspired by <a href="https://github.com/Ksound22/developer-portfolio">developer-portfolio</a>.
-        Timeline built with <a href="https://apexcharts.com/">ApexCharts</a>.
-        Icons from <a href="https://www.flaticon.com/">Flaticon</a>,
-        <a href="https://ionic.io/ionicons">Ionicons</a> and <a href="https://icons8.com/">Icons8</a>.
-      </p>
+      {%- assign monthIndex = site.time | date: "%-m" | minus: 1 -%}
+      {%- assign dayNumber = site.time | date: "%-d" -%}
+      {%- assign yearNumber = site.time | date: "%Y" -%}
+      {%- capture updatedDate -%}
+        {{- t.date_format | replace: "{d}", dayNumber | replace: "{m}", t.months[monthIndex] | replace: "{y}", yearNumber -}}
+      {%- endcapture -%}
+      <p class="footer-updated">{{ t.last_updated }} {{ updatedDate }}</p>
+      <p>{{ t.footer_credits }}</p>
     </footer>
 
     <!-- Website scripts -->

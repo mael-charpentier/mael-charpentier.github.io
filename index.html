@@ -3,10 +3,22 @@ layout: default
 title: Portfolio - Maël Charpentier
 socialActivate: true
 ---
-    <!-- More about -->
+{% assign t = site.data[site.active_lang].strings %}
+    <!-- More about. Both languages live here, separated by {% else %}. -->
     <section class="about" id="about">
-      <h2>More about me :</h2>
+      <h2>{{ t.home.about_title }}</h2>
       <p>
+        {% if site.active_lang == "fr" %}
+        Je suis étudiant au doctorat en informatique à l'Université de Montréal (UdeM), en recherche
+        opérationnelle, sous la direction de <a href="https://margaridacarvalho.org/">Margarida Carvalho</a> et
+        d'<a href="https://utsav19.github.io/">Utsav Sadana</a>.
+        Ma thèse porte sur les jeux de programmation en nombres entiers robustes et averses au risque.<br>
+        Avant cela, j'ai fait une maîtrise en recherche opérationnelle à l'UdeM (2024-2026), sur le placement
+        optimal de capteurs pour la prédiction des données environnementales d'une région, et un baccalauréat
+        en mathématiques et informatique (2021-2024).<br>
+        Je suis citoyen français et résident permanent du Canada.<br>
+        J'aime les voyages, les mangas et l'informatique.<br>
+        {% else %}
         I am a PhD student in computer science at the Université de Montréal (UdeM), in operations research,
         supervised by <a href="https://margaridacarvalho.org/">Margarida Carvalho</a> and
         <a href="https://utsav19.github.io/">Utsav Sadana</a>.
@@ -16,58 +28,10 @@ socialActivate: true
         and computer science (2021-2024).<br>
         I am a French citizen with permanent resident status in Canada.<br>
         I love traveling, manga and computer science.<br>
-        <a href="{{ site.url }}/assets/doc/CV_VF_Mael.pdf">Mon CV (version française)</a><br>
-        <a href="{{ site.url }}/assets/doc/CV_EV_Mael.pdf">My CV (english version)</a>
+        {% endif %}
+        <a href="{{ site.url }}/assets/doc/CV_VF_Mael.pdf">{{ t.home.cv_fr }}</a>
+        <br><a href="{{ site.url }}/assets/doc/CV_EV_Mael.pdf">{{ t.home.cv_en }}</a>
       </p>
     </section>
 
-    <!-- Skills section -->
-    <section class="skills" id="skills">
-      <h2 class="skill-header">Top Skills</h2>
-
-      <div class="skills-wrapper">
-            {% for image in site.static_files %}
-                {% if image.path contains "/assets/images/skills_best/" %}
-                    {% assign name = image.path | split: '.' %}
-                    {% assign lang = name[0] | split: '-' | shift | join: ' '  %}
-                        <img
-                        src="{{ site.url }}{{ image.path }}"
-                        alt="{{ lang }}"
-                        title="{{ lang }}"
-                        loading="lazy"
-                        class="icon icon-card"
-                        />
-                {% endif %}
-            {% endfor %}
-      </div>
-    </section>
-    {% assign sections = "experience,conferences,teaching,projects,education,awards" | split: ',' %}
-    {% assign sectionsText = "My recent experiences,My recent talks and posters,My teaching,My recent personal projects,My education,My recent awards" | split: ',' %}
-    {% for index in (0..5) %}
-        <!-- {{ sections[index] }} section -->
-        <section class="cards" id="{{ sections[index] }}">
-        <h2 class="cards-title">{{ sectionsText[index] }}</h2>
-        <div class="cards-container">
-            {% assign nameSection = sections[index] %}
-            <!-- This loops through the paginated posts -->
-            {% for post in site.categories[nameSection]  limit: 3 %}
-                <div class="card-container card">
-                    {% if post.image %}
-                        <img
-                        src="{{ post.image }}"
-                        alt="{{ post.imageAlt }}"
-                        title="{{ post.imageAlt }}"
-                        loading="lazy"
-                        class="card-pic"
-                        />
-                    {% endif %}
-                    <h3 class="card-title">{{ post.title }}</h3>
-                    <p class="card-details">
-                        {{ post.excerpt }}
-                    </p>
-                    <a href="{{ post.url }}" class="card-link">More info</a>
-                </div>
-            {% endfor %}
-        </div>
-        </section>
-    {% endfor %}
+    {% include home-sections.html %}

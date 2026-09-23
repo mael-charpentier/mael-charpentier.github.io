@@ -1,0 +1,63 @@
+# Interface text, French version. See _data/en/strings.yml.
+nav:
+  about: "À propos"
+  education: "Formation"
+  experience: "Expériences"
+  teaching: "Enseignement"
+  conferences: "Conférences"
+  awards: "Distinctions"
+  projects: "Projets"
+  skills: "Compétences"
+  search: "Recherche"
+  timeline: "Chronologie"
+section:
+  education: "Ma formation"
+  experience: "Mes expériences"
+  teaching: "Mon enseignement"
+  conferences: "Mes exposés et affiches"
+  awards: "Mes bourses et distinctions"
+  projects: "Mes projets"
+home:
+  education: "Ma formation"
+  experience: "Mes expériences récentes"
+  teaching: "Mon enseignement"
+  conferences: "Mes exposés et affiches récents"
+  awards: "Mes bourses et distinctions récentes"
+  projects: "Mes projets personnels récents"
+  about_title: "En savoir plus :"
+  skills_title: "Compétences principales"
+  cv_fr: "Mon CV (version française)"
+  cv_en: "Mon CV (version anglaise)"
+skills_title: "Les langages que je connais :"
+more_info: "En savoir plus"
+back_to_top: "Retour en haut"
+open_menu: "Ouvrir le menu"
+last_updated: "Dernière mise à jour :"
+# {d} day, {m} month, {y} year : Liquid has no translated month names.
+date_format: "{d} {m} {y}"
+months: ["janvier", "février", "mars", "avril", "mai", "juin", "juillet",
+         "août", "septembre", "octobre", "novembre", "décembre"]
+footer_credits: >-
+  Gabarit inspiré de <a href="https://github.com/Ksound22/developer-portfolio">developer-portfolio</a>.
+  Chronologie réalisée avec <a href="https://apexcharts.com/">ApexCharts</a>.
+  Icônes de <a href="https://www.flaticon.com/">Flaticon</a>,
+  <a href="https://ionic.io/ionicons">Ionicons</a> et <a href="https://icons8.com/">Icons8</a>.
+search:
+  label: "Rechercher"
+  placeholder: "Rechercher dans le site"
+  title: "Recherche"
+  empty: "Entrez un mot pour rechercher dans le site."
+  none: "Aucun résultat."
+  one: "1 résultat."
+  many: "{n} résultats."
+sort:
+  label: "Trier par"
+  recent: "Plus récent"
+  oldest: "Plus ancien"
+  title_az: "Titre (A-Z)"
+  title_za: "Titre (Z-A)"
+filter:
+  label: "Filtrer"
+  placeholder: "Filtrer ces cartes"
+  none: "Aucune carte ne correspond."
+lang_switch: "English version"

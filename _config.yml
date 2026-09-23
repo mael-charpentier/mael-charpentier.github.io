@@ -2,12 +2,32 @@ title: "Maël Charpentier"
 description: >-
   Portfolio of Maël Charpentier, PhD student in computer science
   (operations research) at the Université de Montréal.
-lang: en
+url: https://mael-charpentier.github.io
 timezone: America/Montreal
 markdown: kramdown
 
+plugins:
+  - jekyll-polyglot # English / French site
+  - jekyll-sitemap  # sitemap.xml
+
+# --- Languages ---------------------------------------------------------------
+# English is built at the root, French under /fr/. A page with no French version
+# falls back to the English one, but with the menu, the titles and the links in
+# French : a page exists in both languages even when it is not translated.
+languages: ["en", "fr"]
+default_lang: "en"
+# Served as they are : no copy per language, no /fr/ prefix.
+exclude_from_localization: ["assets", "robots.txt", "sitemap.xml"]
+# Build the two languages one after the other : slower (the site is small),
+# but it keeps jekyll-sitemap happy.
+parallel_localization: false
+
 # Default values.
 defaults:
+  - scope:
+      path: ""
+    values:
+      lang: "en" # a French page or post declares lang: "fr" instead
   - scope:
       path: ""
       type: posts
@@ -18,5 +38,9 @@ defaults:
 
 exclude:
   - README.md
-  - archive-links.txt
   - LICENSE
+  - Gemfile
+  - Gemfile.lock
+  - Makefile
+  - bin
+  - vendor

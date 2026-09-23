@@ -1,0 +1,26 @@
+---
+layout: default
+title: Search - Maël Charpentier
+id: search
+socialActivate: true
+---
+{% assign t = site.data[site.active_lang].strings %}
+<section class="cards" id="search">
+  <h2 class="cards-title">{{ t.search.title }}</h2>
+  {%- comment -%}
+    The index is asked for relatively : from /search/ that is /search.json, and
+    from /fr/search/ that is /fr/search.json, with no language to compute.
+  {%- endcomment -%}
+  <form class="search-form" role="search" id="search-form"
+        data-index="../search.json"
+        data-none="{{ t.search.none }}"
+        data-one="{{ t.search.one }}"
+        data-many="{{ t.search.many }}">
+    <label class="visually-hidden" for="search-input">{{ t.search.label }}</label>
+    <input type="search" id="search-input" class="search-input"
+           placeholder="{{ t.search.placeholder }}" autocomplete="off">
+  </form>
+  <p class="search-status" id="search-status">{{ t.search.empty }}</p>
+  <div class="cards-container" id="search-results"></div>
+</section>
+<script src="{{ site.url }}/assets/js/search.js" defer></script>

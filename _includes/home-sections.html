@@ -1,0 +1,55 @@
+{%- comment -%}
+  Bottom of the home page : top skills, then the three most recent entries of
+  each section. The list of sections and their order come from _data/nav.yml
+  (posts: true, rank), so adding a section is a one line change there.
+{%- endcomment -%}
+{% assign t = site.data[site.active_lang].strings %}
+{%- comment -%} title_fr in the front matter of a post overrides title in French. {%- endcomment -%}
+{% capture titleKey %}title_{{ site.active_lang }}{% endcapture %}
+    <!-- Skills section -->
+    <section class="skills" id="skills">
+      <h2 class="skill-header">{{ t.home.skills_title }}</h2>
+
+      <div class="skills-wrapper">
+            {% for image in site.static_files %}
+                {% if image.path contains "/assets/images/skills_best/" %}
+                    {% assign label = site.data.skills[image.basename] | default: image.basename %}
+                        <img
+                        src="{{ site.url }}{{ image.path }}"
+                        alt="{{ label }}"
+                        title="{{ label }}"
+                        loading="lazy"
+                        class="icon icon-card"
+                        />
+                {% endif %}
+            {% endfor %}
+      </div>
+    </section>
+    {% assign sections = site.data.nav | where: "posts", true | sort: "rank" %}
+    {% for item in sections %}
+        <!-- {{ item.id }} section -->
+        <section class="cards" id="{{ item.id }}">
+        <h2 class="cards-title">{{ t.home[item.id] }}</h2>
+        <div class="cards-container">
+            <!-- This loops through the paginated posts -->
+            {% for post in site.categories[item.id] limit: 3 %}
+                <div class="card-container card">
+                    {% if post.image %}
+                        <img
+                        src="{{ post.image }}"
+                        alt="{{ post.imageAlt }}"
+                        title="{{ post.imageAlt }}"
+                        loading="lazy"
+                        class="card-pic"
+                        />
+                    {% endif %}
+                    <h3 class="card-title">{{ post[titleKey] | default: post.title }}</h3>
+                    <p class="card-details">
+                        {{ post.excerpt }}
+                    </p>
+                    <a href="{{ post.url }}" class="card-link">{{ t.more_info }}</a>
+                </div>
+            {% endfor %}
+        </div>
+        </section>
+    {% endfor %}

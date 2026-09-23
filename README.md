@@ -45,3 +45,8 @@ The URL of a post keeps the case of its file name
 - sort the posts
 - multi language
 - update CV
+
+
+last activity :
+- tutora python
+???

@@ -1,12 +1,50 @@
 ---
 layout: default
 ---
+{% assign t = site.data[site.active_lang].strings %}
+{%- comment -%}
+  Starting order : most recent first (the order Jekyll gives). A page changes it
+  with "sort: title" or "sort: oldest" in its front matter. The toolbar then
+  sorts and filters in the browser (assets/js/cards.js), without reloading.
+{%- endcomment -%}
+{%- comment -%} title_fr in the front matter of a post overrides title in French. {%- endcomment -%}
+{% capture titleKey %}title_{{ site.active_lang }}{% endcapture %}
+{% assign posts = site.categories[page.id] %}
+{% case page.sort %}
+  {% when 'title' %}{% assign posts = posts | sort_natural: 'title' %}
+  {% when 'oldest' %}{% assign posts = posts | reverse %}
+{% endcase %}
 <section class="cards" id="{{ page.id }}">
-<h2 class="cards-title">{{ page.section }}</h2>
+<h2 class="cards-title">{{ t.section[page.id] | default: page.section }}</h2>
+
+{% if posts.size > 1 %}
+<div class="cards-toolbar">
+  <div class="cards-toolbar-field">
+    <label for="cards-filter">{{ t.filter.label }}</label>
+    <input type="search" id="cards-filter" class="cards-filter"
+           placeholder="{{ t.filter.placeholder }}" autocomplete="off">
+  </div>
+  <div class="cards-toolbar-field">
+    <label for="cards-sort">{{ t.sort.label }}</label>
+    <select id="cards-sort" class="cards-sort">
+      <option value="date-desc">{{ t.sort.recent }}</option>
+      <option value="date-asc">{{ t.sort.oldest }}</option>
+      <option value="title-asc">{{ t.sort.title_az }}</option>
+      <option value="title-desc">{{ t.sort.title_za }}</option>
+    </select>
+  </div>
+</div>
+<p class="cards-none" id="cards-none" hidden>{{ t.filter.none }}</p>
+{% endif %}
+
 <div class="cards-container">
-    <!-- This loops through the paginated posts  limit: 6 -->
-    {% for post in site.categories[page.id] %}
-        <div class="card-container card">
+    {% for post in posts %}
+        {% assign cardTitle = post[titleKey] | default: post.title %}
+        {% capture searchText %}{{ cardTitle }} {{ post.excerpt | strip_html }}{% endcapture %}
+        <div class="card-container card"
+             data-date="{{ post.date | date: '%Y%m%d' }}"
+             data-title="{{ cardTitle | downcase | strip }}"
+             data-search="{{ searchText | normalize_whitespace | downcase | strip | escape }}">
             {% if post.image %}
                 <img
                 src="{{ post.image }}"
@@ -16,12 +54,13 @@ layout: default
                 class="card-pic"
                 />
             {% endif %}
-            <h3 class="card-title">{{ post.title }}</h3>
+            <h3 class="card-title">{{ cardTitle }}</h3>
             <p class="card-details">
                 {{ post.excerpt }}
             </p>
-            <a href="{{ post.url }}" class="card-link">More info</a>
+            <a href="{{ post.url }}" class="card-link">{{ t.more_info }}</a>
         </div>
     {% endfor %}
 </div>
 </section>
+<script src="{{ site.url }}/assets/js/cards.js" defer></script>

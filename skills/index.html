@@ -1,21 +1,26 @@
 ---
 layout: default
 title: Skills - Maël Charpentier
+id: skills
 socialActivate: true
 ---
+{% assign t = site.data[site.active_lang].strings %}
 <!-- Skills section -->
 <section class="skills" id="skills">
-  <h2 class="skill-header">The languages I know :</h2>
+  <h2 class="skill-header">{{ t.skills_title }}</h2>
 
+  {%- comment -%}
+    The icons are read from the folder : dropping a file in is enough to add one.
+    The name shown comes from _data/skills.yml (key = name of the file).
+  {%- endcomment -%}
   <div class="skills-wrapper">
         {% for image in site.static_files %}
             {% if image.path contains "/assets/images/skills/" %}
-            {% assign name = image.path | split: '.' %}
-            {% assign lang = name[0] | split: '-' | shift | join: ' '  %}
+            {% assign label = site.data.skills[image.basename] | default: image.basename %}
                 <img
                   src="{{ site.url }}{{ image.path }}"
-                  alt="{{ lang }}"
-                  title="{{ lang }}"
+                  alt="{{ label }}"
+                  title="{{ label }}"
                   loading="lazy"
                   class="icon icon-card"
                 />

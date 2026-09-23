@@ -1,0 +1,24 @@
+# Name shown (alt and title) for the icons of assets/images/skills/ and
+# assets/images/skills_best/, by file name without the extension.
+# An icon with no entry here is named after its file : dropping a file in the
+# folder is enough to add it, and a line is only needed when the name is written
+# differently (cpp -> C++).
+bash: "Bash"
+c: "C"
+cpp: "C++"
+css: "CSS"
+git: "Git"
+haskell: "Haskell"
+html5: "HTML"
+java: "Java"
+javascript: "JavaScript"
+julia: "Julia"
+latex: "LaTeX"
+mysql: "MySQL"
+php: "PHP"
+python: "Python"
+r: "R"
+rust: "Rust"
+sql: "SQL"
+typescript: "TypeScript"
+xml: "XML"
