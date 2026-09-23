@@ -34,8 +34,9 @@ more_info: "More info"
 back_to_top: "Back to top"
 open_menu: "Open the menu"
 last_updated: "Last updated:"
-# {d} day, {m} month, {y} year : Liquid has no translated month names.
-date_format: "{m} {d}, {y}"
+# Liquid has no translated month names, and a { inside a {{ }} tag breaks it,
+# so the order is given by the DAY / MONTH / YEAR placeholders.
+date_format: "MONTH DAY, YEAR"
 months: ["January", "February", "March", "April", "May", "June", "July",
          "August", "September", "October", "November", "December"]
 footer_credits: >-

@@ -130,7 +130,7 @@ Date : 19/jan/2022
       {%- assign dayNumber = site.time | date: "%-d" -%}
       {%- assign yearNumber = site.time | date: "%Y" -%}
       {%- capture updatedDate -%}
-        {{- t.date_format | replace: "{d}", dayNumber | replace: "{m}", t.months[monthIndex] | replace: "{y}", yearNumber -}}
+        {{- t.date_format | replace: "DAY", dayNumber | replace: "MONTH", t.months[monthIndex] | replace: "YEAR", yearNumber -}}
       {%- endcapture -%}
       <p class="footer-updated">{{ t.last_updated }} {{ updatedDate }}</p>
       <p>{{ t.footer_credits }}</p>

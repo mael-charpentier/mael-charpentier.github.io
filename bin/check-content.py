@@ -45,6 +45,16 @@ def check_front_matter(path, data):
         warnings.append(f"{path}: still running (\"present\"), to update once it is over")
 
 
+def check_braces(path, text):
+    """Liquid ends a {{ }} at the FIRST }, so a { or } inside one breaks the build."""
+    for match in re.finditer(r"\{\{", text):
+        rest = text[match.end():]
+        stop = rest.find("}")
+        if stop == -1 or not rest.startswith("}}", stop):
+            snippet = (match.group() + rest[:stop if stop != -1 else 40]).strip()
+            problems.append(f"{path}: brace inside an output tag, Liquid stops early ({snippet[:60]})")
+
+
 def check_liquid(path, text):
     """Liquid tags opened and never closed : Jekyll would refuse to build."""
     counts = {tag: 0 for tag in TAGS}
@@ -91,7 +101,9 @@ def post_urls():
 
 def main():
     known = post_urls()
-    files = [p for p in ROOT.rglob("*.html") if "_site" not in p.parts]
+    # .json too : search.json is a Liquid template as well.
+    files = [p for p in list(ROOT.rglob("*.html")) + list(ROOT.rglob("*.json"))
+             if "_site" not in p.parts]
     for path in sorted(files):
         text = path.read_text(encoding="utf-8")
         # Links inside a comment (TODO) are not served : skip them.
@@ -101,6 +113,7 @@ def main():
         if match and "_posts" in path.parts:
             check_front_matter(rel, dict(FIELD.findall(match.group(1))))
         check_liquid(rel, text)
+        check_braces(rel, text)
         for link in LINK.findall(text):
             target = link.replace("{{ site.url }}", "").split("#")[0]
             if not target.startswith("/") or target.startswith("//"):
