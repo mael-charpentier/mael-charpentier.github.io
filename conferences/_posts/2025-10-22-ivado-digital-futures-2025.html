@@ -1,17 +1,44 @@
 ---
 layout: post
 title:  "IVADO Digital Futures 2025"
+title_fr:  "Futurs Numériques IVADO 2025"
 image: "/assets/images/logos/logo-ivado.jpg"
 imageAlt: "IVADO Digital Futures"
 datePost: "2025-10-22"
 excerpt_separator: <!--more-->
 socialActivate: true
 ---
+{% if site.active_lang == "fr" %}
+<div class="resume">
+    Présentation orale (5 min), 22 octobre 2025<br>
+    Futurs Numériques IVADO, Université de Montréal
+</div>
+{% else %}
 <div class="resume">
     Oral presentation (5 min), 22 October 2025<br>
     IVADO Digital Futures, Université de Montréal
 </div>
+{% endif %}
 <!--more-->
+{% if site.active_lang == "fr" %}
+<section class="all conferences">
+    <div class="header">
+        <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
+        <div class="title">
+            <a href="https://ivado.ca/evenements/futurs-numeriques-ivado-2025/">Futurs Numériques IVADO 2025</a>,
+            campus MIL, Université de Montréal
+        </div>
+        <div class="date">
+            22 octobre 2025 - présentation orale (5 min)
+        </div>
+    </div>
+    <div class="content">
+        Titre : <em>AI for optimal sensor placement in urban environmental monitoring</em><br>
+        Premiers résultats de ma <a href="{{ site.url }}/education/index.html">recherche de maîtrise</a>, présentés à des étudiants, des chercheurs et des partenaires industriels.<br>
+        <a href="https://event.fourwaves.com/futursnumeriques2025">Programme de l'événement</a>.
+    </div>
+</section>
+{% else %}
 <section class="all conferences">
     <div class="header">
         <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
@@ -29,3 +56,4 @@ socialActivate: true
         <a href="https://event.fourwaves.com/futursnumeriques2025">Programme of the event</a>.
     </div>
 </section>
+{% endif %}

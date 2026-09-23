@@ -7,10 +7,34 @@ datePost: "2021-04-01"
 excerpt_separator: <!--more-->
 socialActivate: true
 ---
+{% if site.active_lang == "fr" %}
+<div class="resume">
+    Participation au Concours Général <small>(France)</small>
+</div>
+{% else %}
 <div class="resume">
     Participation in the Concours Général <small>(France)</small>
 </div>
+{% endif %}
 <!--more-->
+{% if site.active_lang == "fr" %}
+<section class="all prix">
+    <div class="header">
+        <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
+        <div class="title">
+            <a href='https://stanislas.qc.ca/actualite/concours-general-des-lycees-et-des-metiers/'>
+                Participation au Concours Général <small>(France)</small>
+            </a>
+        </div>
+        <div class="date">
+            avril 2021
+        </div>
+    </div>
+    <div class="content">
+        J'ai participé au Concours Général en mathématiques.
+    </div>
+</section>
+{% else %}
 <section class="all prix">
     <div class="header">
         <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
@@ -27,3 +51,4 @@ socialActivate: true
         I took part in the Concours Général in mathematics.
     </div>
 </section>
+{% endif %}

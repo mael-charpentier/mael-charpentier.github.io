@@ -1,14 +1,43 @@
 ---
 layout: post
 title:  "Personal website"
+title_fr:  "Site personnel"
 datePost: "2021-09-01;present"
 excerpt_separator: <!--more-->
 socialActivate: true
 ---
+{% if site.active_lang == "fr" %}
+<div class="resume">
+    Le site que vous lisez : un site Jekyll hébergé sur GitHub Pages.
+</div>
+{% else %}
 <div class="resume">
     The website you are reading : a Jekyll site hosted on GitHub Pages.
 </div>
+{% endif %}
 <!--more-->
+{% if site.active_lang == "fr" %}
+<section class="all project">
+    <div class="header">
+        <div class="title">
+            Site personnel
+        </div>
+        <div class="date">
+            depuis 2022
+        </div>
+    </div>
+    <div class="content">
+        Création de mon portfolio : un site statique engendré avec Jekyll et hébergé sur GitHub Pages.
+        Le <a href="https://github.com/mael-charpentier/mael-charpentier.github.io">code source</a>
+        est sur GitHub.<br>
+        <ul class="lang">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+        </ul>
+    </div>
+</section>
+{% else %}
 <section class="all project">
     <div class="header">
         <div class="title">
@@ -29,3 +58,4 @@ socialActivate: true
         </ul>
     </div>
 </section>
+{% endif %}

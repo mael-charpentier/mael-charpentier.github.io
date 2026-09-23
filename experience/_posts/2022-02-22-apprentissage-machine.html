@@ -1,16 +1,47 @@
 ---
 layout: post
 title:  "Machine learning Stage with Qiskit"
+title_fr:  "Micro-stage d'apprentissage machine avec Qiskit"
 image: "/assets/images/logos/logo-IMAC.webp"
 imageAlt: "Machine learning Stage with Qiskit"
 datePost: "2022-02-22"
 excerpt_separator: <!--more-->
 socialActivate: true
 ---
+{% if site.active_lang == "fr" %}
+<div class="resume">
+    Micro-stage sur l'apprentissage machine en informatique quantique proposé par le CMAI (Institut canadien de la mobilité et de l'aéronautique)
+</div>
+{% else %}
 <div class="resume">
     Micro-Stage on machine learning in quantum computing proposed by CMAI (Canadian Mobility and Aerospace Institute)
 </div>
+{% endif %}
 <!--more-->
+{% if site.active_lang == "fr" %}
+<section class="all experience">
+    <div class="header">
+        <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
+        <div class="title">
+            <a href='https://placementspot.ca/micro-stages/utilisation-de-qiskit-applique-a-lapprentissage-machine-fr-1'>
+                Utilisation de Qiskit appliqué à l'apprentissage machine
+            </a>
+        </div>
+        <div class="date">
+            22 février 2022
+        </div>
+    </div>
+    <div class="content">
+        Micro-stage proposé par le CMAI (Institut canadien de la mobilité et de l'aéronautique)
+        <br>
+        J'y ai appris les bases de l'apprentissage machine en informatique quantique, ainsi que
+        l'utilisation de Qiskit pour faire de l'apprentissage machine en informatique quantique.<br>
+        <a href='{{ site.url }}/assets/doc/micro_stage_Qiskit_apprentissage_machine.pdf' rel='noreferrer noopener'>
+            (attestation de formation)
+        </a>
+    </div>
+</section>
+{% else %}
 <section class="all experience">
     <div class="header">
         <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
@@ -33,3 +64,4 @@ socialActivate: true
         </a>
     </div>
 </section>
+{% endif %}

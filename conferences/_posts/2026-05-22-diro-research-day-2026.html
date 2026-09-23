@@ -1,17 +1,45 @@
 ---
 layout: post
 title:  "DIRO Research Day 2026"
+title_fr:  "Journée de la recherche du DIRO 2026"
 image: "/assets/doc/poster-diro2026.png"
 imageAlt: "Poster presented at the DIRO research day 2026"
 datePost: "2026-05-22"
 excerpt_separator: <!--more-->
 socialActivate: true
 ---
+{% if site.active_lang == "fr" %}
+<div class="resume">
+    Affiche, 22 mai 2026<br>
+    Journée de la recherche du DIRO, Université de Montréal
+</div>
+{% else %}
 <div class="resume">
     Poster, 22 May 2026<br>
     Research day of the DIRO, Université de Montréal
 </div>
+{% endif %}
 <!--more-->
+{% if site.active_lang == "fr" %}
+<section class="all conferences">
+    <div class="header">
+        <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
+        <div class="title">
+            <a href="https://event.fourwaves.com/diro2026">Journée de la recherche du DIRO 2026</a>,
+            deuxième édition, campus MIL, Université de Montréal
+        </div>
+        <div class="date">
+            22 mai 2026 - affiche
+        </div>
+    </div>
+    <div class="content">
+        Titre : <em>Extrapolation spatiale de données environnementales via la régression par processus gaussiens</em><br>
+        Avec <a href="https://margaridacarvalho.org/">Margarida Carvalho</a> et <a href="https://utsav19.github.io/">Utsav Sadana</a>, issue de ma
+        <a href="{{ site.url }}/education/index.html">recherche de maîtrise</a>.
+        <a href="{{ site.url }}/assets/doc/poster-diro2026.png">Voir l'affiche</a>.
+    </div>
+</section>
+{% else %}
 <section class="all conferences">
     <div class="header">
         <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
@@ -30,3 +58,4 @@ socialActivate: true
         <a href="{{ site.url }}/assets/doc/poster-diro2026.png">See the poster</a>.
     </div>
 </section>
+{% endif %}

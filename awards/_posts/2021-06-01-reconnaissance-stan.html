@@ -1,16 +1,42 @@
 ---
 layout: post
 title:  "School Recognition Awards"
+title_fr:  "Prix de reconnaissance"
 image: "/assets/images/logos/logo-stan.jpeg"
 imageAlt: "School Recognition Awards"
 datePost: "2021-06-01"
 excerpt_separator: <!--more-->
 socialActivate: true
 ---
+{% if site.active_lang == "fr" %}
+<div class="resume">
+    Prix de reconnaissance, Collège Stanislas
+</div>
+{% else %}
 <div class="resume">
     School Recognition Awards, Collège Stanislas
 </div>
+{% endif %}
 <!--more-->
+{% if site.active_lang == "fr" %}
+<section class="all prix">
+    <div class="header">
+        <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
+        <div class="title">
+            <a href='https://stanislas.qc.ca/evenement/gala-dexcellence/'>
+                Prix de reconnaissance, Collège Stanislas <!-- https://stanislas.qc.ca/actualite/un-gala-virtuel-pour-celebrer-lexcellence/ / https://youtu.be/nI6QV1MHUVc -->
+            </a>
+        </div>
+        <div class="date">
+            2021
+        </div>
+    </div>
+    <div class="content">
+        Pour ma participation au <a href="{{ site.url }}/awards/2021/04/01/concours-general.html">Concours Général</a>
+        et au <a href="{{ site.url }}/awards/2021/04/14/concours-purple-comet.html">concours Purple Comet</a>
+    </div>
+</section>
+{% else %}
 <section class="all prix">
     <div class="header">
         <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
@@ -28,3 +54,4 @@ socialActivate: true
         and <a href="{{ site.url }}/awards/2021/04/14/concours-purple-comet.html">Purple Comet Competition</a>
     </div>
 </section>
+{% endif %}

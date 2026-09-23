@@ -7,11 +7,97 @@ datePost: "2018-09-01;2021-06-01"
 excerpt_separator: <!--more-->
 socialActivate: true
 ---
+{% if site.active_lang == "fr" %}
+<div class="resume">
+    2018-2021<br>
+    Baccalauréat général français (mention très bien), DES et DEC
+</div>
+{% else %}
 <div class="resume">
     2018-2021<br>
     French general baccalaureate (mention très bien), DES and DEC
 </div>
+{% endif %}
 <!--more-->
+{% if site.active_lang == "fr" %}
+<section class="all education">
+    <div class="header">
+        <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
+        <h2 class="title">
+            Collège Stanislas, Montréal, Canada
+        </h2>
+        <div class="date">
+            2018-2021
+        </div>
+        <div class="diplomes">
+            Diplômes : baccalauréat général français (mention très bien), DES et DEC
+        </div>
+    </div>
+    <div class="content">
+        <div>
+            <span class="title_section">Langues :</span>
+            <ul>
+                <li>LV1 : anglais</li>
+                <li>LV2 : espagnol</li>
+            </ul>
+        </div>
+        <div>
+            <span class="title_section">Spécialités :</span>
+            <ul>
+                <li>Terminale :
+                    <ul>
+                        <li>Mathématiques</li>
+                        <li>Numérique et sciences informatiques</li>
+                        <li>Mathématiques expertes</li>
+                    </ul>
+                </li>
+                <li>Première :
+                    <ul>
+                        <li>Mathématiques</li>
+                        <li>Numérique et sciences informatiques</li>
+                        <li>Physique-chimie</li>
+                    </ul>
+                </li>
+                <li>Seconde :
+                    <ul>
+                        <li>Option cryptographie</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <span class="title_section">Distinctions :</span>
+            <ul>
+                <li><a href="{{ site.url }}/awards/2021/06/01/reconnaissance-stan.html">
+                    Prix de reconnaissance
+                </a> pour ma participation au Purple Comet et au Concours Général</li>
+                <li><a href="{{ site.url }}/awards/2021/04/14/concours-purple-comet.html">
+                    Purple Comet
+                </a></li>
+                <li><a href="{{ site.url }}/awards/2021/04/01/concours-general.html">
+                    Concours Général
+                </a></li>
+                <li><a href="{{ site.url }}/awards/2020/05/10/reussite-scolaire-stan.html">
+                    Prix de réussite scolaire
+                </a></li>
+                <li>Demi-finaliste du <a href="{{ site.url }}/awards/2019/04/06/competition-alkindi.html">
+                    concours Alkindi (cryptographie)
+                </a> - pendant le cours de cryptographie en seconde</li>
+                <li>Participation au <a href="{{ site.url }}/awards/2019/03/30/challenge-torch.html">
+                    défi TORCH
+                </a> - The Operations Research Challenge - (6e/35)-
+                    en seconde</li>
+            </ul>
+        </div>
+        <div>
+            <span class="title_section">Autre :</span>
+            <br>
+            Membre du club de robotique (programmation)
+            -6622 Stan Robotix- en seconde
+        </div>
+    </div>
+</section>
+{% else %}
 <section class="all education">
     <div class="header">
         <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
@@ -89,3 +175,4 @@ socialActivate: true
         </div>
     </div>
 </section>
+{% endif %}

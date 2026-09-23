@@ -1,17 +1,45 @@
 ---
 layout: post
 title:  "OBVIA grant"
+title_fr:  "Bourse de l'OBVIA"
 image: "/assets/images/logos/logo-obvia.png"
 imageAlt: "OBVIA grant"
 datePost: "2021-09-01;2022-05-01"
 excerpt_separator: <!--more-->
 socialActivate: true
 ---
+{% if site.active_lang == "fr" %}
+<div class="resume">
+    Pour le <a href='{{ site.url }}/experience/2022/05/01/garambullo.html'>
+    projet Garambullo</a>.
+</div>
+{% else %}
 <div class="resume">
     For the <a href='{{ site.url }}/experience/2022/05/01/garambullo.html'>
     Garambullo project</a>.
 </div>
+{% endif %}
 <!--more-->
+{% if site.active_lang == "fr" %}
+<section class="all prix">
+    <div class="header">
+        <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
+        <div class="title">
+            <a href='https://www.obvia.ca/boursieres-et-boursiers'>
+                Bourse de l'OBVIA <small>(Observatoire international sur
+                    les impacts sociétaux de l’IA)</small>
+            </a>
+        </div>
+        <div class="date">
+            automne 2021 - hiver 2022
+        </div>
+    </div>
+    <div class="content">
+        Bourse de recherche pour le <a href='{{ site.url }}/experience/2022/05/01/garambullo.html'>
+        projet Garambullo</a>, pour 2 sessions : automne 2021 et hiver 2022, pour un total de 5 000 $.
+    </div>
+</section>
+{% else %}
 <section class="all prix">
     <div class="header">
         <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
@@ -30,3 +58,4 @@ socialActivate: true
         Garambullo project</a>, for 2 sessions: fall 2021 and winter 2022, for a total of $5,000.
     </div>
 </section>
+{% endif %}

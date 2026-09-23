@@ -1,18 +1,72 @@
 ---
 layout: post
 title:  "Garambullo Project"
+title_fr:  "Projet Garambullo"
 image: "/assets/images/logos/logo-garambullo.webp"
 imageAlt: "Garambullo Project"
 datePost: "2021-09-01;2022-05-01,2023-01-10;2023-05-01"
 excerpt_separator: <!--more-->
 socialActivate: true
 ---
+{% if site.active_lang == "fr" %}
+<div class="resume">
+    Proyecto Garambullo est un espace de recherche pratique en art et en culture,
+    dont la mission est de contribuer à la préservation du patrimoine culinaire
+    de la région semi-désertique de Querétaro, au Mexique.
+</div>
+{% else %}
 <div class="resume">
     Proyecto Garambullo is a practical research space for art and culture
     with the mission of contributing to the preservation of the
     culinary heritage of the semi-desert region of Querétaro, Mexico.
 </div>
+{% endif %}
 <!--more-->
+{% if site.active_lang == "fr" %}
+<section class="all experience">
+    <div class="header">
+        <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
+        <div class="title">
+            <a href="https://fr.proyectogarambullo.com/">
+                Projet Garambullo
+            </a>
+        </div>
+        <div class="date">
+            septembre 2021 - mai 2022,<br>
+            janvier 2023 - mai 2023
+        </div>
+    </div>
+    <div class="content">
+        Proyecto Garambullo est un espace de recherche pratique en art et en culture,
+        dont la mission est de contribuer à la préservation du patrimoine culinaire
+        de la région semi-désertique de Querétaro, au Mexique.
+        <br>
+        Ce projet cherche à utiliser la technologie pour
+        construire de nouvelles façons d'interagir avec les communautés
+        et pour préserver leurs savoirs.
+        <br>
+        Dans un premier temps, le projet porte sur la création d'un robot conversationnel,
+        pour l'instant sur Facebook (Messenger).
+        <br>
+        Le robot prend un message dans lequel l'utilisateur a donné
+        des instructions et renvoie une recette de cuisine traditionnelle mexicaine.
+        <br>
+        De plus, le robot doit pouvoir évoluer :
+        ajout de nouvelles fonctionnalités, ajout de recettes venant de la communauté, etc.
+        <br>
+        À terme, nous aimerions une application qui rende l'interaction
+        avec l'utilisateur plus ludique et plus instructive
+        qu'un robot conversationnel.
+        <br>
+        J'ai été supervisé par <a href="https://www.manuelmorales.org">Manuel Morales</a>, professeur à l'UdeM.<br>
+        Langages utilisés pendant le stage :
+        <ul class="lang">
+            <li>Python, pour le robot et son serveur</li>
+            <li>MySQL, pour la base de données de recettes</li>
+        </ul>
+    </div>
+</section>
+{% else %}
 <section class="all experience">
     <div class="header">
         <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
@@ -56,3 +110,4 @@ socialActivate: true
         </ul>
     </div>
 </section>
+{% endif %}

@@ -1,16 +1,43 @@
 ---
 layout: post
 title:  "FRQNT complement 2024"
+title_fr:  "Complément du FRQNT 2024"
 image: "/assets/images/logos/logo-frqnt.png"
 imageAlt: "FRQNT"
 datePost: "2024-05-01;2024-08-31"
 excerpt_separator: <!--more-->
 socialActivate: true
 ---
+{% if site.active_lang == "fr" %}
+<div class="resume">
+    Pour le <a href='{{ site.url }}/experience/2022/10/20/blinx.html'>projet Blinx</a>.
+</div>
+{% else %}
 <div class="resume">
     For the <a href='{{ site.url }}/experience/2022/10/20/blinx.html'>Blinx project</a>.
 </div>
+{% endif %}
 <!--more-->
+{% if site.active_lang == "fr" %}
+<section class="all prix">
+    <div class="header">
+        <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
+        <div class="title">
+            Complément du
+            <a href="https://frq.gouv.qc.ca/programme/supplements-aux-bourses-de-1er-cycle-en-milieu-academique-du-crsng-brpc-bpca-2020-2021/">FRQNT</a>
+            à la <a href="{{ site.url }}/awards/2024/08/31/BRPC.html">bourse BRPC</a>
+        </div>
+        <div class="date">
+            été 2024
+        </div>
+    </div>
+    <div class="content">
+        Complément de 1 500 CAD à la
+        <a href='{{ site.url }}/awards/2024/08/31/BRPC.html'>BRPC/USRA</a>,
+        pour le <a href='{{ site.url }}/experience/2022/10/20/blinx.html'>projet Blinx</a>.
+    </div>
+</section>
+{% else %}
 <section class="all prix">
     <div class="header">
         <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
@@ -29,3 +56,4 @@ socialActivate: true
         for the <a href='{{ site.url }}/experience/2022/10/20/blinx.html'>Blinx project</a>.
     </div>
 </section>
+{% endif %}

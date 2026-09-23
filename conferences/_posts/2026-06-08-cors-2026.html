@@ -7,11 +7,37 @@ datePost: "2026-06-08;2026-06-10"
 excerpt_separator: <!--more-->
 socialActivate: true
 ---
+{% if site.active_lang == "fr" %}
+<div class="resume">
+    Présentation orale (18 min), 8-10 juin 2026<br>
+    67e congrès annuel de la Société canadienne de recherche opérationnelle
+</div>
+{% else %}
 <div class="resume">
     Oral presentation (18 min), 8-10 June 2026<br>
     67th annual conference of the Canadian Operational Research Society
 </div>
+{% endif %}
 <!--more-->
+{% if site.active_lang == "fr" %}
+<section class="all conferences">
+    <div class="header">
+        <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
+        <div class="title">
+            <a href="https://site.pheedloop.com/event/cors2026/home">67e congrès annuel de la Société canadienne de recherche opérationnelle (CORS)</a>,
+            Université Queen's, Kingston
+        </div>
+        <div class="date">
+            8-10 juin 2026 - présentation orale (18 min)
+        </div>
+    </div>
+    <div class="content">
+        Titre : <em>Optimizing Sensor Deployment for Gaussian Process Regression and Change Point Detection</em><br>
+        Avec <a href="https://margaridacarvalho.org/">Margarida Carvalho</a> et <a href="https://utsav19.github.io/">Utsav Sadana</a>, issue de ma
+        <a href="{{ site.url }}/education/index.html">recherche de maîtrise</a>.
+    </div>
+</section>
+{% else %}
 <section class="all conferences">
     <div class="header">
         <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
@@ -29,3 +55,4 @@ socialActivate: true
         <a href="{{ site.url }}/education/index.html">master's research</a>.
     </div>
 </section>
+{% endif %}

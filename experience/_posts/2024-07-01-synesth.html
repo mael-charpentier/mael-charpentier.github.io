@@ -1,16 +1,51 @@
 ---
 layout: post
 title:  "Synesth Project"
+title_fr:  "Projet Synesth"
 image: "/assets/doc/poster-ismb.png"
 imageAlt: "Poster of the Synesth project, ISMB 2024"
 datePost: "2024-01-08;2024-07-15"
 excerpt_separator: <!--more-->
 socialActivate: true
 ---
+{% if site.active_lang == "fr" %}
+<div class="resume">
+    Réduction de l'espace des solutions de la super-réconciliation, en bio-informatique.
+</div>
+{% else %}
 <div class="resume">
     Reducing the solution space of super-reconciliation, in bioinformatics.
 </div>
+{% endif %}
 <!--more-->
+{% if site.active_lang == "fr" %}
+<section class="all experience">
+    <div class="header">
+        <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
+        <div class="title">
+            Projet Synesth, supervisé par
+            <a href="https://www.iro.umontreal.ca/~mabrouk/">Nadia El-Mabrouk</a> (UdeM)
+        </div>
+        <div class="date">
+            janvier 2024 - juillet 2024
+        </div>
+    </div>
+    <div class="content">
+        <a href="https://www.iro.umontreal.ca/~mabrouk/">Nadia El-Mabrouk</a> et son équipe, le
+        <a href="https://github.com/UdeM-LBIT">laboratoire LBIT</a>, ont développé Synesth, un outil de
+        super-réconciliation : la fusion d'arbres de gènes
+        et d'arbres d'espèces en une histoire évolutive globale, pour mieux comprendre comment les gènes
+        évoluent d'une espèce à l'autre.<br>
+        Même parmi les histoires Pareto-optimales, il peut y en avoir un milliard ou plus, bien trop pour
+        les montrer à un utilisateur. Mon projet consistait à ne renvoyer que des solutions
+        « représentatives », ce qui demandait d'abord de définir ce que représentatif veut dire - une
+        approche proche de la recherche opérationnelle et de l'optimisation.<br>
+        Commencé comme projet de cours à option à la session d'hiver 2024, il s'est poursuivi de mai à
+        juillet avec les simulations validant l'approche et la préparation de l'affiche présentée à
+        <a href="{{ site.url }}/conferences/2024/07/12/ismb-2024.html">ISMB 2024</a>.
+    </div>
+</section>
+{% else %}
 <section class="all experience">
     <div class="header">
         <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
@@ -36,3 +71,4 @@ socialActivate: true
         <a href="{{ site.url }}/conferences/2024/07/12/ismb-2024.html">ISMB 2024</a>.
     </div>
 </section>
+{% endif %}

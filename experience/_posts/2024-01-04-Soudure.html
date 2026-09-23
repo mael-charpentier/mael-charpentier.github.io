@@ -1,16 +1,41 @@
 ---
 layout: post
 title:  "Welding"
+title_fr:  "Soudure"
 image: "/assets/images/logos/logo-les_affutees.png"
 imageAlt: "Welding"
 datePost: "2024-01-04"
 excerpt_separator: <!--more-->
 socialActivate: true
 ---
+{% if site.active_lang == "fr" %}
+<div class="resume">
+    Atelier d'initiation à la soudure à l'électrode
+</div>
+{% else %}
 <div class="resume">
     Introduction to electrode welding workshop
 </div>
+{% endif %}
 <!--more-->
+{% if site.active_lang == "fr" %}
+<section class="all experience">
+    <div class="header">
+        <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
+        <div class="title">
+            <a href='https://www.les-affutes.ca/ateliers/circulaire/initiation-soudure-faire-sculpture-creative/?datetime=2024-01-04%2018:00:00'>
+                Initiation soudure - Faire une sculpture créative
+            </a>
+        </div>
+        <div class="date">
+            04 janvier 2024
+        </div>
+    </div>
+    <div class="content">
+        Cet atelier de soudure portait sur la soudure à l'électrode ; je l'ai suivi pour pouvoir faire le suivant, « Welding Training - Making a Rocket Stove ».
+    </div>
+</section>
+{% else %}
 <section class="all experience">
     <div class="header">
         <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
@@ -27,3 +52,4 @@ socialActivate: true
         This welding workshop was done using electrode welding and I took it so I could do the next one, which was "Welding Training - Making a Rocket Stove".
     </div>
 </section>
+{% endif %}

@@ -7,6 +7,15 @@ datePost: "2022-01-10;2022-01-14"
 excerpt_separator: <!--more-->
 socialActivate: true
 ---
+{% if site.active_lang == "fr" %}
+<div class="resume">
+    Nous avons présenté le
+    <a href='{{ site.url }}/experience/2022/05/01/garambullo.html'>
+        projet Garambullo
+    </a> au hackathon organisé par le CIMAT pendant la
+    <a href='https://web.archive.org/web/20220107223328/https://spi.eventos.cimat.mx/'>SPI</a>.
+</div>
+{% else %}
 <div class="resume">
     We presented the
     <a href='{{ site.url }}/experience/2022/05/01/garambullo.html'>
@@ -14,7 +23,44 @@ socialActivate: true
     </a> at the Hackathon organised by CIMAT during the
     <a href='https://web.archive.org/web/20220107223328/https://spi.eventos.cimat.mx/'>SPI</a>.
 </div>
+{% endif %}
 <!--more-->
+{% if site.active_lang == "fr" %}
+<section class="all experience">
+    <div class="header">
+        <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
+        <div class="title">
+            <a href='https://web.archive.org/web/20220107223328/https://spi.eventos.cimat.mx/'>
+                Hackathon SPI
+            </a>
+        </div>
+        <div class="date">
+            10 - 14 janvier 2022
+        </div>
+    </div>
+    <div class="content">
+        Nous avons présenté le
+        <a href='{{ site.url }}/experience/2022/05/01/garambullo.html'>
+            projet Garambullo
+        </a> au hackathon organisé par le CIMAT pendant la
+        <a href='https://web.archive.org/web/20220107223328/https://spi.eventos.cimat.mx/'>SPI</a>.
+        Pour résoudre des problèmes de regroupement et de classement de recettes.<br>
+        Le but du <a href='{{ site.url }}/experience/2022/05/01/garambullo.html'>
+            projet Garambullo
+        </a> est de créer un robot conversationnel qui renvoie une recette
+        à partir du message envoyé par l'utilisateur.<br>
+        Or, il est possible que plusieurs recettes
+        correspondent à la demande de l'utilisateur.<br>
+        Comme seul un certain nombre peut être renvoyé,
+        il faut les classer pour savoir laquelle
+        correspond le mieux au besoin de l'utilisateur.<br>
+        C'est là que nous avions besoin d'aide.<br>
+        <a href='{{ site.url }}/assets/doc/spi_project_garambullo.pdf' rel='noreferrer noopener'>
+            (attestation de participation)
+        </a>
+    </div>
+</section>
+{% else %}
 <section class="all experience">
     <div class="header">
         <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
@@ -49,3 +95,4 @@ socialActivate: true
         </a>
     </div>
 </section>
+{% endif %}

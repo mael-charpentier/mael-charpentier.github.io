@@ -1,17 +1,45 @@
 ---
 layout: post
 title:  "USRA grant"
+title_fr:  "Bourse BRPC"
 image: "/assets/images/logos/logo-brpc.png"
 imageAlt: "USRA grant"
 datePost: "2022-05-01;2022-08-31"
 excerpt_separator: <!--more-->
 socialActivate: true
 ---
+{% if site.active_lang == "fr" %}
+<div class="resume">
+    Pour le <a href='{{ site.url }}/experience/2022/10/20/blinx.html'>
+    projet Blinx</a>.
+</div>
+{% else %}
 <div class="resume">
     For the <a href='{{ site.url }}/experience/2022/10/20/blinx.html'>
     Blinx project</a>.
 </div>
+{% endif %}
 <!--more-->
+{% if site.active_lang == "fr" %}
+<section class="all prix">
+    <div class="header">
+        <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
+        <div class="title">
+            <a href='https://nserc-crsng.canada.ca/fr/possibilite-de-financement/bourses-de-recherche-de-1er-cycle'>
+                Bourses de recherche de 1er cycle (BRPC) / Undergraduate Student Research Awards (USRA), du CRSNG.
+            </a>
+        </div>
+        <div class="date">
+            été 2022
+        </div>
+    </div>
+    <div class="content">
+        Bourse de recherche pour l'été 2022,
+        pour le <a href='{{ site.url }}/experience/2022/10/20/blinx.html'>
+        projet Blinx</a>.
+    </div>
+</section>
+{% else %}
 <section class="all prix">
     <div class="header">
         <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
@@ -30,3 +58,4 @@ socialActivate: true
         Blinx project</a>.
     </div>
 </section>
+{% endif %}

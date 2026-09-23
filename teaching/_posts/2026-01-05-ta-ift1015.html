@@ -7,11 +7,40 @@ datePost: "2025-09-01;2025-12-20,2026-01-05;2026-04-30"
 excerpt_separator: <!--more-->
 socialActivate: true
 ---
+{% if site.active_lang == "fr" %}
+<div class="resume">
+    Démonstrateur, automne 2025 et hiver 2026<br>
+    Introduction à la programmation, Université de Montréal
+</div>
+{% else %}
 <div class="resume">
     Teaching assistant, fall 2025 and winter 2026<br>
     Introduction to programming, Université de Montréal
 </div>
+{% endif %}
 <!--more-->
+{% if site.active_lang == "fr" %}
+<section class="all teaching">
+    <div class="header">
+        <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
+        <div class="title">
+            Démonstrateur -
+            <a href="https://admission.umontreal.ca/cours-et-horaires/cours/IFT-1015/">IFT-1015, Programmation 1</a>,
+            Université de Montréal
+        </div>
+        <div class="date">
+            automne 2025, hiver 2026
+        </div>
+    </div>
+    <div class="content">
+        <ul>
+            <li>Automne 2025, avec le prof. <a href="https://www-labs.iro.umontreal.ca/~feeley/">Marc Feeley</a></li>
+            <li>Hiver 2026, avec le prof. <a href="https://olimel.net/">Olivier Melançon</a></li>
+        </ul>
+        J'anime les séances de travaux pratiques et j'encadre les étudiants pendant les exercices.
+    </div>
+</section>
+{% else %}
 <section class="all teaching">
     <div class="header">
         <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
@@ -32,3 +61,4 @@ socialActivate: true
         I run the practical sessions and supervise the students during the exercises.
     </div>
 </section>
+{% endif %}

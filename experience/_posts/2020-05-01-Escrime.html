@@ -1,17 +1,44 @@
 ---
 layout: post
 title:  "Fencing"
+title_fr:  "Escrime"
 image: "/assets/images/logos/logo-escrime.png"
 imageAlt: "Escrime"
 datePost: "2012-09-01;2015-05-01,2016-09-01;2020-05-01"
 excerpt_separator: <!--more-->
 socialActivate: true
 ---
+{% if site.active_lang == "fr" %}
+<div class="resume">
+    J'ai pratiqué le fleuret et le sabre,<br>
+    puis l'épée pendant trois ans.
+</div>
+{% else %}
 <div class="resume">
     I practised foil and sabre,<br>
     then épée for three years.
 </div>
+{% endif %}
 <!--more-->
+{% if site.active_lang == "fr" %}
+<section class="all experience">
+    <div class="header">
+        <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
+        <div class="title">
+            Escrime
+        </div>
+        <div class="date">
+            2012-2014 (Montréal), 2014-2015 (Rennes),<br>
+            2016-2018 (Rennes), 2018-2020 (Montréal)
+        </div>
+    </div>
+    <div class="content">
+        J'ai pratiqué le fleuret et le sabre.<br>
+        Avant la COVID, j'ai pratiqué l'épée pendant trois ans.<br>
+        <a href="https://www.flaticon.com/fr/icones-gratuites/escrime" title="escrime icônes">Fencing icons created by Royyan Wijaya - Flaticon</a>
+    </div>
+</section>
+{% else %}
 <section class="all experience">
     <div class="header">
         <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
@@ -29,3 +56,4 @@ socialActivate: true
         <a href="https://www.flaticon.com/fr/icones-gratuites/escrime" title="escrime icônes">Fencing icons created by Royyan Wijaya - Flaticon</a>
     </div>
 </section>
+{% endif %}

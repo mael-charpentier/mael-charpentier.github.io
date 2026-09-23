@@ -7,10 +7,32 @@ datePost: "2019-09-01;2023-06-01"
 excerpt_separator: <!--more-->
 socialActivate: true
 ---
+{% if site.active_lang == "fr" %}
+<div class="resume">
+    Membre du groupe scout 160e François Perrault.
+</div>
+{% else %}
 <div class="resume">
     Member of the 160e François Perrault scout group.
 </div>
+{% endif %}
 <!--more-->
+{% if site.active_lang == "fr" %}
+<section class="all experience">
+    <div class="header">
+        <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
+        <div class="title">
+            Scouts - <a href="https://www.facebook.com/groups/251979325003245/">160e François Perrault</a>
+        </div>
+        <div class="date">
+            2019 - 2023
+        </div>
+    </div>
+    <div class="content">
+        J'ai été membre du groupe scout <a href="https://www.facebook.com/groups/251979325003245/">160e François Perrault</a>, à Montréal.
+    </div>
+</section>
+{% else %}
 <section class="all experience">
     <div class="header">
         <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
@@ -25,3 +47,4 @@ socialActivate: true
         I was a member of the <a href="https://www.facebook.com/groups/251979325003245/">160e François Perrault</a> scout group, in Montréal.
     </div>
 </section>
+{% endif %}

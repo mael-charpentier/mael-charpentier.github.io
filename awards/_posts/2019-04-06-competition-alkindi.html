@@ -1,19 +1,46 @@
 ---
 layout: post
 title:  "Alkindi competition"
+title_fr:  "Concours Alkindi"
 image: "/assets/images/logos/logo-alkindi.png"
 imageAlt: "Alkindi competition"
 datePost: "2019-03-22;2019-04-06"
 excerpt_separator: <!--more-->
 socialActivate: true
 ---
-<!--
-layout: education
--->
+{% if site.active_lang == "fr" %}
+<div class="resume">
+    Participation au concours Alkindi
+</div>
+{% else %}
 <div class="resume">
     Participation in the Alkindi competition
 </div>
+{% endif %}
 <!--more-->
+{% if site.active_lang == "fr" %}
+<section class="all prix">
+    <div class="header">
+        <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
+        <div class="title">
+            <a href='https://www.concours-alkindi.fr/'>
+                Participation au concours Alkindi
+            </a>
+        </div>
+        <div class="date">
+        </div>
+    </div>
+    <div class="content">
+        C'est un concours de cryptographie, en équipes de 3.
+        <br>
+        Toutes les personnes qui suivaient l'option cryptographie
+        en seconde y ont participé.
+        <br>
+        L'édition 2018-2019 a commencé en décembre 2018 et s'est terminée par une finale à Paris en mai 2019 ;
+        j'ai participé au troisième tour, du 21 mars au 6 avril 2019.
+    </div>
+</section>
+{% else %}
 <section class="all prix">
     <div class="header">
         <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
@@ -31,5 +58,9 @@ layout: education
         <br>
         All the people who took the cryptography option
         in seconde took part.
+        <br>
+        The 2018-2019 edition started in December 2018 and ended with a final in Paris in May 2019 ;
+        I took part in the third round, from 21 March to 6 April 2019.
     </div>
 </section>
+{% endif %}

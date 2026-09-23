@@ -1,16 +1,41 @@
 ---
 layout: post
 title:  "DIRO Scholarship"
+title_fr:  "Bourse d'excellence du DIRO"
 image: "/assets/images/logos/logo-diro.png"
 imageAlt: "DIRO Scholarship"
 datePost: "2022-11-23"
 excerpt_separator: <!--more-->
 socialActivate: true
 ---
+{% if site.active_lang == "fr" %}
+<div class="resume">
+    Bourse d'excellence
+</div>
+{% else %}
 <div class="resume">
     Excellence Scholarship
 </div>
+{% endif %}
 <!--more-->
+{% if site.active_lang == "fr" %}
+<section class="all prix">
+    <div class="header">
+        <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
+        <div class="title">
+            <a href='https://diro.umontreal.ca/public/FAS/diro/Documents/5-Departement/Prix_et_Distinctions/BoursesExcellenceDIRO.pdf'>
+                Bourse d'excellence du Département d'informatique et de recherche opérationnelle (DIRO)
+            </a>
+        </div>
+        <div class="date">
+            automne 2021 - hiver 2022
+        </div>
+    </div>
+    <div class="content">
+        Bourse d'excellence
+    </div>
+</section>
+{% else %}
 <section class="all prix">
     <div class="header">
         <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
@@ -27,3 +52,4 @@ socialActivate: true
         Excellence Scholarship
     </div>
 </section>
+{% endif %}

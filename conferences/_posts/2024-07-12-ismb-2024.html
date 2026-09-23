@@ -7,11 +7,40 @@ datePost: "2024-07-12;2024-07-16"
 excerpt_separator: <!--more-->
 socialActivate: true
 ---
+{% if site.active_lang == "fr" %}
+<div class="resume">
+    Affiche, 12-16 juillet 2024<br>
+    Intelligent Systems for Molecular Biology, Montréal
+</div>
+{% else %}
 <div class="resume">
     Poster, 12-16 July 2024<br>
     Intelligent Systems for Molecular Biology, Montréal
 </div>
+{% endif %}
 <!--more-->
+{% if site.active_lang == "fr" %}
+<section class="all conferences">
+    <div class="header">
+        <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
+        <div class="title">
+            <a href="https://www.iscb.org/ismb2024/home">ISMB 2024</a> (Intelligent Systems for Molecular Biology),
+            32e édition, Palais des congrès de Montréal
+        </div>
+        <div class="date">
+            12-16 juillet 2024 - affiche
+        </div>
+    </div>
+    <div class="content">
+        Titre : <em>Tree Reconciliation accounting for Segmental Events: Reduced Representation of the Solution Space</em><br>
+        Avec Mathieu Gascon, <a href="https://matteo.delab.re/">Mattéo Delabre</a> et
+        <a href="https://www.iro.umontreal.ca/~mabrouk/">Nadia El-Mabrouk</a>, issue du
+        <a href="{{ site.url }}/experience/2024/07/01/synesth.html">projet Synesth</a>.
+        <a href="https://f1000research.com/posters/13-1282">L'affiche sur F1000Research</a> -
+        <a href="{{ site.url }}/assets/doc/poster-ismb.png">voir l'affiche</a>.
+    </div>
+</section>
+{% else %}
 <section class="all conferences">
     <div class="header">
         <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
@@ -32,3 +61,4 @@ socialActivate: true
         <a href="{{ site.url }}/assets/doc/poster-ismb.png">see the poster</a>.
     </div>
 </section>
+{% endif %}

@@ -1,16 +1,41 @@
 ---
 layout: post
 title:  "Climbing"
+title_fr:  "Escalade"
 image: "/assets/images/logos/logo-escalade.png"
 imageAlt: "Climbing"
 datePost: "2021-09-01;present"
 excerpt_separator: <!--more-->
 socialActivate: true
 ---
+{% if site.active_lang == "fr" %}
+<div class="resume">
+    J'ai commencé l'escalade en entrant à l'université.
+</div>
+{% else %}
 <div class="resume">
     I started climbing when I started university.
 </div>
+{% endif %}
 <!--more-->
+{% if site.active_lang == "fr" %}
+<section class="all experience">
+    <div class="header">
+        <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
+        <div class="title">
+            Escalade
+        </div>
+        <div class="date">
+            septembre 2021
+        </div>
+    </div>
+    <div class="content">
+        J'ai commencé l'escalade en entrant à l'université.<br>
+        Je fais du bloc et de la voie.<br>
+        <a href="https://www.flaticon.com/fr/icones-gratuites/montee" title="montée icônes">Montée icons created by Freepik - Flaticon</a>
+    </div>
+</section>
+{% else %}
 <section class="all experience">
     <div class="header">
         <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
@@ -27,3 +52,4 @@ socialActivate: true
         <a href="https://www.flaticon.com/fr/icones-gratuites/montee" title="montée icônes">Montée icons created by Freepik - Flaticon</a>
     </div>
 </section>
+{% endif %}

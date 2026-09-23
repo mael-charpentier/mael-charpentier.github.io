@@ -1,18 +1,49 @@
 ---
 layout: post
 title:  "Tutoring"
+title_fr:  "Tutorat"
 image: "/assets/images/logos/logo-tutor.png"
 imageAlt: "Tutoring"
 datePost: "2021-01-08;2021-06-18"
 excerpt_separator: <!--more-->
 socialActivate: true
 ---
+{% if site.active_lang == "fr" %}
+<div class="resume">
+    J'ai donné du tutorat à un élève du Collège Stanislas,
+    pour lui apprendre à mieux utiliser l'ordinateur
+    dans ses cours.
+</div>
+{% else %}
 <div class="resume">
     I tutored a student at the Collège Stanislas,
     with the aim of teaching him to better use computer tools
     for his courses.
 </div>
+{% endif %}
 <!--more-->
+{% if site.active_lang == "fr" %}
+<section class="all experience">
+    <div class="header">
+        <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
+        <div class="title">
+            Tutorat
+        </div>
+        <div class="date">
+            8 janvier 2021 - 18 juin 2021
+        </div>
+    </div>
+    <div class="content">
+        J'ai donné du tutorat à un élève du Collège Stanislas.<br>
+        Il avait des difficultés et devait utiliser un ordinateur
+        pour tous ses cours et ses examens.<br>
+        J'utilisais moi-même un ordinateur pour mes cours et mes examens depuis l'âge de 13 ans.<br>
+        On m'a demandé de lui montrer les outils et les astuces qui pouvaient l'aider,
+        en classe comme en examen.<br>
+        <a href="https://www.flaticon.com/free-icons/tutor" title="tutor icons">Tutor icons created by Eucalyp - Flaticon</a>
+    </div>
+</section>
+{% else %}
 <section class="all experience">
     <div class="header">
         <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
@@ -33,3 +64,4 @@ socialActivate: true
         <a href="https://www.flaticon.com/free-icons/tutor" title="tutor icons">Tutor icons created by Eucalyp - Flaticon</a>
     </div>
 </section>
+{% endif %}

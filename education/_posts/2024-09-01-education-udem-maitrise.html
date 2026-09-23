@@ -1,17 +1,105 @@
 ---
 layout: post
 title:  "Master's degree - Université de Montréal"
+title_fr:  "Maîtrise - Université de Montréal"
 image: "/assets/images/logos/logo-udem.jpeg"
 imageAlt: "Université de Montréal"
 datePost: "2024-09-01;2026-10-01"
 excerpt_separator: <!--more-->
 socialActivate: true
 ---
+{% if site.active_lang == "fr" %}
+<div class="resume">
+    2024-2026<br>
+    Maîtrise en informatique, recherche opérationnelle
+</div>
+{% else %}
 <div class="resume">
     2024-2026<br>
     Master's degree in computer science, operations research
 </div>
+{% endif %}
 <!--more-->
+{% if site.active_lang == "fr" %}
+<section class="all education">
+    <div class="header">
+        <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
+        <h2 class="title">
+            Université de Montréal, Montréal, Canada
+        </h2>
+        <div class="date">
+            2024-2026
+        </div>
+        <div class="diplomes">
+            Diplôme : maîtrise en informatique, recherche opérationnelle
+        </div>
+    </div>
+    <div class="content">
+        <div>
+            <span class="title_section">Mémoire :</span>
+            <ul>
+                <li>Sujet : placement optimal de capteurs pour la prédiction des données environnementales d'une région</li>
+                <li>Supervisé par <a href="https://margaridacarvalho.org/">Margarida Carvalho</a>
+                    et <a href="https://utsav19.github.io/">Utsav Sadana</a>,
+                    en partenariat avec <a href="https://eco-pivot.ca/">Eco-Pivot</a></li>
+            </ul>
+        </div>
+        <div>
+            <span class="title_section">Cours :</span>
+            <ul>
+                <li>automne 2024 :
+                    <ul>
+                        <li><a href="https://admission.umontreal.ca/cours-et-horaires/cours/IFT-6512/">IFT6512</a>
+                            - Programmation stochastique</li>
+                        <li><a href="https://admission.umontreal.ca/cours-et-horaires/cours/IFT-6575/">IFT6575</a>
+                            - Méthodes de recherche opérationnelle</li>
+                    </ul>
+                </li>
+                <li>hiver 2025 :
+                    <ul>
+                        <li><a href="https://admission.umontreal.ca/cours-et-horaires/cours/IFT-6521/">IFT6521</a>
+                            - Programmation dynamique</li>
+                        <li><a href="https://admission.umontreal.ca/cours-et-horaires/cours/IFT-6135/">IFT6135</a>
+                            - Apprentissage de représentations</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <span class="title_section">Exposés et affiches :</span>
+            <ul>
+                <li><a href="{{ site.url }}/conferences/2026/06/08/cors-2026.html">CORS 2026</a> - présentation orale</li>
+                <li><a href="{{ site.url }}/conferences/2026/05/11/jopt-2026.html">Journées de l'Optimisation 2026</a> - présentation orale</li>
+                <li><a href="{{ site.url }}/conferences/2026/05/22/diro-research-day-2026.html">Journée de la recherche du DIRO 2026</a> - affiche</li>
+                <li><a href="{{ site.url }}/conferences/2025/10/22/ivado-digital-futures-2025.html">Futurs Numériques IVADO 2025</a> - présentation orale</li>
+                <li><a href="{{ site.url }}/conferences/2025/05/05/acfas-2025.html">Acfas 2025</a> - présentation orale avec Eco-Pivot</li>
+            </ul>
+        </div>
+        <div>
+            <span class="title_section">Enseignement :</span>
+            <ul>
+                <li><a href="{{ site.url }}/teaching/2026/01/05/ta-ift1015.html">IFT1015 - Programmation 1</a>,
+                    automne 2025 et hiver 2026</li>
+                <li><a href="{{ site.url }}/teaching/2026/01/05/ta-ift1575.html">IFT1575 - Modèles de recherche opérationnelle</a>,
+                    automne 2025 et hiver 2026</li>
+            </ul>
+        </div>
+        <div>
+            <span class="title_section">Financement :</span>
+            <ul>
+                <li>Bourse de maîtrise en recherche du FRQNT (2025-2026)</li>
+                <li>Bourse Mitacs Accélération avec <a href="https://eco-pivot.ca/">Eco-Pivot</a> (2024-2026)</li>
+            </ul>
+        </div>
+        <div>
+            <span class="title_section">Bénévolat :</span>
+            <ul>
+                <li>Bénévole au café étudiant <a href="https://cafemathinfo.iro.umontreal.ca/">Tore et Fraction</a> (DIRO), à chaque session depuis 2021</li>
+            </ul>
+        </div>
+    </div>
+</section>
+{% else %}
 <section class="all education">
     <div class="header">
         <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
@@ -90,3 +178,4 @@ socialActivate: true
         </div>
     </div>
 </section>
+{% endif %}

@@ -1,17 +1,81 @@
 ---
 layout: post
 title:  "PhD - Université de Montréal"
+title_fr:  "Doctorat - Université de Montréal"
 image: "/assets/images/logos/logo-udem.jpeg"
 imageAlt: "Université de Montréal"
 datePost: "2026-09-01;present"
 excerpt_separator: <!--more-->
 socialActivate: true
 ---
+{% if site.active_lang == "fr" %}
+<div class="resume">
+    Depuis 2026<br>
+    Doctorat en informatique, recherche opérationnelle
+</div>
+{% else %}
 <div class="resume">
     Since 2026<br>
     PhD in computer science, operations research
 </div>
+{% endif %}
 <!--more-->
+{% if site.active_lang == "fr" %}
+<section class="all education">
+    <div class="header">
+        <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
+        <h2 class="title">
+            Université de Montréal, Montréal, Canada
+        </h2>
+        <div class="date">
+            depuis septembre 2026
+        </div>
+        <div class="diplomes">
+            Diplôme : doctorat en informatique, recherche opérationnelle
+        </div>
+    </div>
+    <div class="content">
+        <div>
+            <span class="title_section">Thèse :</span>
+            <ul>
+                <li>Sujet : <em>Jeux de programmation en nombres entiers robustes et averses au risque</em></li>
+                <li>Supervisée par <a href="https://margaridacarvalho.org/">Margarida Carvalho</a>
+                    et <a href="https://utsav19.github.io/">Utsav Sadana</a></li>
+            </ul>
+        </div>
+        <div>
+            <span class="title_section">Cours :</span>
+            <ul>
+                <li>automne 2026 :
+                    <ul>
+                        <li><a href="https://admission.umontreal.ca/cours-et-horaires/cours/IFT-6551/">IFT6551</a>
+                            - Programmation en nombres entiers</li>
+                        <li><a href="https://www.hec.ca/cours/math-80624a-quantitative-risk-management-using-robust-optimization">MATH80624A</a>
+                            - Quantitative Risk Management Using Robust Optimization
+                            (HEC Montréal, auditeur libre)</li>
+                    </ul>
+                </li>
+                <li>hiver 2027, prévu :
+                    <ul>
+                        <li><a href="https://admission.umontreal.ca/cours-et-horaires/cours/IFT-6581A/">IFT6581A</a>
+                            - Sujets en recherche opérationnelle : optimisation pour la théorie des jeux</li>
+                        <li><a href="https://admission.umontreal.ca/cours-et-horaires/cours/IFT-6003/">IFT6003</a>
+                            - Méthodes de recherche en informatique</li>
+                        <li><a href="https://admission.umontreal.ca/cours-et-horaires/cours/IFT-6169/">IFT6169</a>
+                            - Principes théoriques de l'apprentissage profond</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <span class="title_section">Bénévolat :</span>
+            <ul>
+                <li>Bénévole au café étudiant <a href="https://cafemathinfo.iro.umontreal.ca/">Tore et Fraction</a> (DIRO), à chaque session depuis 2021</li>
+            </ul>
+        </div>
+    </div>
+</section>
+{% else %}
 <section class="all education">
     <div class="header">
         <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
@@ -59,9 +123,6 @@ socialActivate: true
             </ul>
         </div>
         <div>
-            <span class="title_section">Teaching :</span>
-        </div>
-        <div>
             <span class="title_section">Volunteer work :</span>
             <ul>
                 <li>Volunteer at the student café <a href="https://cafemathinfo.iro.umontreal.ca/">Tore et Fraction</a> (DIRO), every session since 2021</li>
@@ -69,3 +130,4 @@ socialActivate: true
         </div>
     </div>
 </section>
+{% endif %}

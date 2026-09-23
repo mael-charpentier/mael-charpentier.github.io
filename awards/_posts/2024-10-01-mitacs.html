@@ -1,16 +1,41 @@
 ---
 layout: post
 title:  "Mitacs Accelerate scholarship"
+title_fr:  "Bourse Mitacs Accélération"
 image: "/assets/images/logos/logo-mitacs.png"
 imageAlt: "Mitacs"
 datePost: "2024-10-01;2026-03-31"
 excerpt_separator: <!--more-->
 socialActivate: true
 ---
+{% if site.active_lang == "fr" %}
+<div class="resume">
+    Pour ma recherche de maîtrise, avec <a href='https://eco-pivot.ca/'>Eco-Pivot</a>.
+</div>
+{% else %}
 <div class="resume">
     For my master's research, with <a href='https://eco-pivot.ca/'>Eco-Pivot</a>.
 </div>
+{% endif %}
 <!--more-->
+{% if site.active_lang == "fr" %}
+<section class="all prix">
+    <div class="header">
+        <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
+        <div class="title">
+            Bourse <a href="https://www.mitacs.ca/fr-ca/nos-programmes/acceleration/">Mitacs Accélération</a>,
+            avec <a href="https://eco-pivot.ca/">Eco-Pivot</a>
+        </div>
+        <div class="date">
+            octobre 2024 - mars 2026
+        </div>
+    </div>
+    <div class="content">
+        Bourse pour ma <a href='{{ site.url }}/education/2024/09/01/education-udem-maitrise.html'>recherche de maîtrise</a>, menée avec
+        <a href='https://eco-pivot.ca/'>Eco-Pivot</a>, pour un total de 45 000 CAD.
+    </div>
+</section>
+{% else %}
 <section class="all prix">
     <div class="header">
         <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
@@ -27,3 +52,4 @@ socialActivate: true
         <a href='https://eco-pivot.ca/'>Eco-Pivot</a>, for a total of 45 000 CAD.
     </div>
 </section>
+{% endif %}

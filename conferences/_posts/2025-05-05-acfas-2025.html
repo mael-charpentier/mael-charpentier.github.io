@@ -7,11 +7,36 @@ datePost: "2025-05-05;2025-05-09"
 excerpt_separator: <!--more-->
 socialActivate: true
 ---
+{% if site.active_lang == "fr" %}
+<div class="resume">
+    Présentation orale (25 min), 5-9 mai 2025<br>
+    Congrès de l'Acfas, ÉTS Montréal
+</div>
+{% else %}
 <div class="resume">
     Oral presentation (25 min), 5-9 May 2025<br>
     Congress of the Acfas, ÉTS Montréal
 </div>
+{% endif %}
 <!--more-->
+{% if site.active_lang == "fr" %}
+<section class="all conferences">
+    <div class="header">
+        <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
+        <div class="title">
+            92e <a href="https://www.acfas.ca/node/94902">Congrès de l'Acfas</a>, accueilli par l'ÉTS avec l'Université Concordia, Montréal
+        </div>
+        <div class="date">
+            5-9 mai 2025 - présentation orale (25 min)
+        </div>
+    </div>
+    <div class="content">
+        Titre : <em>La recherche collaborative au service de l'entrepreneuriat et des PME : entre promesse d'innovation et parcours semé d'embûches</em><br>
+        Présentée avec Alexandre Beaudoin, cofondateur et directeur de la recherche d'<a href="https://eco-pivot.ca/">Eco-Pivot</a>, l'entreprise avec laquelle j'ai travaillé pendant ma maîtrise.
+        Le congrès de l'Acfas est le plus grand congrès scientifique francophone en Amérique du Nord.
+    </div>
+</section>
+{% else %}
 <section class="all conferences">
     <div class="header">
         <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
@@ -29,3 +54,4 @@ socialActivate: true
         The Acfas congress is the largest French-speaking scientific congress in North America.
     </div>
 </section>
+{% endif %}

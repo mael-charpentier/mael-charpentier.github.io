@@ -1,16 +1,71 @@
 ---
 layout: post
 title:  "Blinx Project"
+title_fr:  "Projet Blinx"
 image: "/assets/images/logos/logo-codeboot.png"
 imageAlt: "Blinx Project"
 datePost: "2022-05-01;2022-12-20,2023-05-01;2023-05-20,2024-05-01;2024-08-31"
 excerpt_separator: <!--more-->
 socialActivate: true
 ---
+{% if site.active_lang == "fr" %}
+<div class="resume">
+    Intégration de microcontrôleurs au projet CodeBoot.
+</div>
+{% else %}
 <div class="resume">
     Microcontroller integration in the CodeBoot project.
 </div>
+{% endif %}
 <!--more-->
+{% if site.active_lang == "fr" %}
+<section class="all experience">
+    <div class="header">
+        <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
+        <div class="title">
+            <a href="https://codeboot.org/">
+                Projet Blinx
+            </a>
+        </div>
+        <div class="date">
+            mai 2022 - décembre 2022,<br>
+            mai 2023,<br>
+            mai 2024 - août 2024
+        </div>
+    </div>
+    <div class="content">
+        Le projet Blinx complète le <a href="https://codeboot.org/">
+            projet CodeBoot
+        </a>.<br>
+        Le but du projet CodeBoot est de créer une application web
+        qui permet de programmer, surtout en Python,
+        depuis un navigateur, sans rien installer côté client.<br>
+        Le projet Blinx, c'est l'intégration de microcontrôleurs à cette
+        application web, grâce à l'<a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Serial_API">
+            API Web Serial
+        </a> disponible sur Google Chrome (ainsi que sur Edge, Opera et les navigateurs basés sur Chromium).<br>
+        L'objectif est de pouvoir contrôler un microcontrôleur (le Blinx) depuis
+        l'application web CodeBoot.<br>
+        Le projet est né avec la « réforme scolaire » au cégep, où la programmation
+        devient obligatoire.<br>
+        Mon superviseur voulait proposer CodeBoot aux cégeps comme outil d'apprentissage.
+        Et Blinx est venu élargir les possibilités, en particulier pour les projets demandés.
+        <br>
+        Pendant l'été 2024, avec une deuxième
+        <a href="{{ site.url }}/awards/2024/08/31/BRPC.html">bourse BRPC</a>, j'ai développé une deuxième version de
+        Blinx qui tient compte des problèmes rencontrés par les utilisateurs de la première, ce qui en a
+        entièrement changé les fondations.<br>
+        J'ai été supervisé par <a href="https://diro.umontreal.ca/repertoire-departement/professeurs/professeur/in/in14344/sg/Marc%20Feeley/">Marc Feeley</a>, professeur à l'UdeM.<br>
+        Le code de CodeBoot est sur GitHub, sur <a href="https://github.com/feeley/codeboot">le compte de Marc Feeley</a>
+        et dans <a href="https://github.com/codeboot-org">l'organisation codeBoot</a>.<br>
+        Langages utilisés pendant le stage :
+        <ul class="lang">
+            <li>Python</li>
+            <li>C++</li>
+        </ul>
+    </div>
+</section>
+{% else %}
 <section class="all experience">
     <div class="header">
         <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
@@ -58,3 +113,4 @@ socialActivate: true
         </ul>
     </div>
 </section>
+{% endif %}

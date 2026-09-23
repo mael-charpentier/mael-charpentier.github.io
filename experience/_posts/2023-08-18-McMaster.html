@@ -1,16 +1,48 @@
 ---
 layout: post
 title:  "P4 LSP"
+title_fr:  "LSP pour P4"
 image: "/assets/images/logos/logo-P4.png"
 imageAlt: "P4 LSP"
 datePost: "2023-05-01;2023-08-31"
 excerpt_separator: <!--more-->
 socialActivate: true
 ---
+{% if site.active_lang == "fr" %}
+<div class="resume">
+    Création d'un LSP pour le langage P4.
+</div>
+{% else %}
 <div class="resume">
     Creation of an LSP for the P4 language.
 </div>
+{% endif %}
 <!--more-->
+{% if site.active_lang == "fr" %}
+<section class="all experience">
+    <div class="header">
+        <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
+        <div class="title">
+            A DevOps framework for developing, operating, and evolving SDN infrastructure and applications.
+        </div>
+        <div class="date">
+            mai 2023 - août 2023
+        </div>
+    </div>
+    <div class="content">
+        J'ai fait ce stage à l'Université McMaster (Hamilton, Ontario), supervisé par
+        <a href="https://mosser.github.io/">Sébastien Mosser</a>, avec deux autres étudiants.<br>
+        Le but du projet était de créer un LSP pour le langage P4, avec un
+        gestionnaire d'extensions intégré pour ajouter des scripts à exécuter à certains moments.
+        Par exemple, des tests (P4test ou Petr4) à lancer à chaque enregistrement d'un fichier.<br>
+        Un LSP permet : la coloration syntaxique, la réécriture de code (par exemple le renommage),
+        le diagnostic syntaxique, la complétion et la navigation (par exemple « aller à la définition »). <br>
+        <a href="https://github.com/ace-design/p4-lsp" title="vscode extension">Github</a>
+        <a href="https://p4.org/" title="P4 language">Le langage P4</a>
+        <a href="https://marketplace.visualstudio.com/items?itemName=mcscert.p4lsp" title="vscode extension">extension vscode</a>
+    </div>
+</section>
+{% else %}
 <section class="all experience">
     <div class="header">
         <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
@@ -34,3 +66,4 @@ socialActivate: true
         <a href="https://marketplace.visualstudio.com/items?itemName=mcscert.p4lsp" title="vscode extension">vscode extension</a>
     </div>
 </section>
+{% endif %}

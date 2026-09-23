@@ -1,17 +1,54 @@
 ---
 layout: post
 title:  "TORCH challenge"
+title_fr:  "Défi TORCH"
 image: "/assets/images/logos/logo-torch.png"
 imageAlt: "TORCH challenge"
 datePost: "2019-03-30"
 excerpt_separator: <!--more-->
 socialActivate: true
 ---
+{% if site.active_lang == "fr" %}
+<div class="resume">
+    Participation au défi TORCH
+    <small>(The Operations Research Challenge)</small>
+</div>
+{% else %}
 <div class="resume">
     Participation in the TORCH challenge
     <small>(The Operations Research Challenge)</small>
 </div>
+{% endif %}
 <!--more-->
+{% if site.active_lang == "fr" %}
+<section class="all prix">
+    <div class="header">
+        <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
+        <div class="title">
+            <a href='https://web.archive.org/web/20190909200850/http://orchallenge.org/'>
+                Participation au défi TORCH
+                <small>(The Operations Research Challenge)</small>
+            </a>
+        </div>
+        <div class="date">
+            30 mars 2019
+        </div>
+    </div>
+    <div class="content">
+        TORCH est un concours d'une journée organisé par des étudiants en recherche opérationnelle de trois
+        universités, Concordia, Toronto et Waterloo, où des équipes de 3 à 4 élèves du secondaire ou du cégep
+        résolvent des problèmes tirés de différents domaines d'application de la recherche opérationnelle.
+        <br>
+        J'ai participé à
+        l'édition montréalaise du troisième TORCH, à l'Université Concordia,
+        pendant ma seconde au Collège Stanislas, dans une équipe de 3 avec deux élèves de première.
+        <br>
+        Nous avons fini 6es sur 35 groupes.
+        <br>
+        Le site du concours n'est plus en ligne : le titre pointe vers l'archive web.
+    </div>
+</section>
+{% else %}
 <section class="all prix">
     <div class="header">
         <img class="logo" alt="{{ page.imageAlt }}" src="{{ page.image }}"/>
@@ -39,3 +76,4 @@ socialActivate: true
         The website of the competition is no longer online : the title links to the web archive.
     </div>
 </section>
+{% endif %}
