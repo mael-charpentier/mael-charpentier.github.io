@@ -1,2 +1,21 @@
-nom: Portfolio - Maël Charpentier
-démarque: kramdown
+title: "Maël Charpentier"
+description: >-
+  Portfolio of Maël Charpentier, PhD student in computer science
+  (operations research) at the Université de Montréal.
+lang: en
+timezone: America/Montreal
+markdown: kramdown
+
+# Default values.
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      socialActivate: true
+      excerpt_separator: "<!--more-->"
+
+exclude:
+  - README.md
+  - LICENSE

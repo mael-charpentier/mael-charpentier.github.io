@@ -46,6 +46,7 @@ function reportWindowSize() {
 }
 
 function showBurger(bool) {
+  burger.setAttribute("aria-expanded", bool);
   if (bool) {
     //ul.classList.toggle("show");
     ul.style.display = 'flex';
@@ -62,8 +63,10 @@ function showBurger(bool) {
 window.onresize = reportWindowSize;
 
 
+const BIRTH_DATE = new Date(2002, 11, 31); // 31 of december 2002
+
 function getMyAge(dateNew = new Date()) {
-  let dateOld = new Date(2002, 12, 31);
+  let dateOld = BIRTH_DATE;
   let yNew = dateNew.getFullYear();
   let mNew = dateNew.getMonth();
   let dNew = dateNew.getDate();
@@ -77,6 +80,7 @@ function getMyAge(dateNew = new Date()) {
   return diff;
 }
 
-if (window.location.pathname == '/') {
-  document.getElementById('age').innerText = getMyAge();
+const ageElement = document.getElementById("age");
+if (ageElement) {
+  ageElement.innerText = getMyAge();
 }

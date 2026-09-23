@@ -3,11 +3,11 @@ Créateur : Maël Charpentier
 Date : 19/jan/2022
 -->
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="{{ site.lang | default: 'en' }}">
   <head>
     <meta charset="UTF-8">
-    <title>{{ page.title }}</title>
-    <meta name="description" content="Portfolio de Maël Charpentier">
+    <title>{{ page.title | default: site.title }}</title>
+    <meta name="description" content="{{ page.description | default: site.description }}">
     <meta name="author" content="Maël Charpentier">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -33,17 +33,28 @@ Date : 19/jan/2022
   <body>
     <!-- Navbar -->
     <nav id="navigator">
-      <h1><a href='{{ site.url }}'>Mael Charpentier</a></h1>
+      <h1><a href='{{ site.url }}/'>Maël Charpentier</a></h1>
+      {% assign navTitles = "About,Education,Experience,Teaching,Conferences,Awards,Projects,Skills,Timeline" | split: ',' %}
+      {% assign navPaths = "/#top,/education/index.html,/experience/index.html,/teaching/index.html,/conferences/index.html,/awards/index.html,/projects/index.html,/skills/index.html,/timeline/index.html" | split: ',' %}
+      {% assign navSections = "/,/education/,/experience/,/teaching/,/conferences/,/awards/,/projects/,/skills/,/timeline/" | split: ',' %}
       <ul id="menu">
-        <li><a href="{{ site.url }}/#top" class="nav-link" onclick="closeBurger();">About</a></li>
-        <li><a href="{{ site.url }}/education/index.html" class="nav-link">Education</a></li>
-        <li><a href="{{ site.url }}/experience/index.html" class="nav-link">Experience</a></li>
-        <li><a href="{{ site.url }}/awards/index.html" class="nav-link">Awards</a></li>
-        <li><a href="{{ site.url }}/projects/index.html" class="nav-link">Projects</a></li>
-        <li><a href="{{ site.url }}/skills/index.html" class="nav-link">Skills</a></li>
-        <li><a href="{{ site.url }}/timeline/index.html" class="nav-link">Timeline</a></li>
+        {% for index in (0..8) %}
+          {% assign section = navSections[index] %}
+          {% assign isCurrent = false %}
+          {% if section == '/' %}
+            {% if page.url == '/' %}{% assign isCurrent = true %}{% endif %}
+          {% elsif page.url contains section %}
+            {% assign isCurrent = true %}
+          {% endif %}
+          <li>
+            <a href="{{ site.url }}{{ navPaths[index] }}"
+               class="nav-link{% if isCurrent %} active{% endif %}"
+               {% if isCurrent %}aria-current="page"{% endif %}
+               onclick="closeBurger();">{{ navTitles[index] }}</a>
+          </li>
+        {% endfor %}
       </ul>
-      <button class="burger-menu" id="burger-menu">
+      <button class="burger-menu" id="burger-menu" type="button" aria-label="Open the menu" aria-expanded="false" aria-controls="menu">
         <ion-icon class="bars" id="burger-bars" name="menu-outline"></ion-icon>
         <ion-icon class="close" id="burger-close" name="close-outline"></ion-icon>
       </button>
@@ -53,39 +64,40 @@ Date : 19/jan/2022
       {{ content }}
     </div>
 
-    <!-- Social accounts - Fixed to the right -->
+    <!-- Social accounts - fixed to the right.
+         The icons stay still and only animate when the pointer is over them. -->
     {% if page.socialActivate %}
     <div class="socials">
-      <a href="https://www.linkedin.com/in/ma%C3%ABl-charpentier-a50537220/" target="_blank"
-        ><img
-          src="{{ site.url }}/assets/images/icons/icons8-linkedin-circled.gif"
-          alt="Linkedin"
-          title="https://www.linkedin.com/in/ma%C3%ABl-charpentier-a50537220/"
-          loading="lazy"
-          class="socicon"
-      /></a>
-      <a href="https://github.com/mael-charpentier" target="_blank"
-        ><img src="{{ site.url }}/assets/images/icons/icons8-github.gif" alt="Github" title="https://github.com/mael-charpentier" class="socicon"
-      /></a>
-      <a href="mailto:mael.charpentier#gmail com" target="_blank"
-        ><img src="{{ site.url }}/assets/images/icons/icons8-secured-letter.gif" alt="Email" title="mael.charpentier#gmail com" class="socicon"
-      /></a>
+      <a class="social-link social-link--linkedin"
+         href="https://www.linkedin.com/in/mael-charpentier"
+         target="_blank" rel="noopener" title="LinkedIn">
+        <span class="visually-hidden">LinkedIn</span>
+      </a>
+      <a class="social-link social-link--github"
+         href="https://github.com/mael-charpentier"
+         target="_blank" rel="noopener" title="GitHub">
+        <span class="visually-hidden">GitHub</span>
+      </a>
+      <a class="social-link social-link--email" href="mailto:mael.charpentier#gmail com" title="mael.charpentier#gmail com">
+        <span class="visually-hidden">Email</span>
+      </a>
     </div>
     {% endif %}
 
     <!-- Scroll to top -->
-    <i class="scroll-up" id="scroll-up"
-      ><img
-        src="{{ site.url }}/assets/images/icons/icons8-upward-arrow.gif"
-        class="socicon up-arrow"
-        alt=""
-    /></i>
+    <button class="scroll-up" id="scroll-up" type="button" title="Back to top">
+      <span class="visually-hidden">Back to top</span>
+    </button>
 
     <!-- Footer section -->
     <footer>
-      Template inspired by : <a href="https://github.com/Ksound22/developer-portfolio">https://github.com/Ksound22/developer-portfolio</a><br>
-      For the timeline, use <a href="https://apexcharts.com/">apexcharts</a><br>
-      Icons : <a href="https://www.flaticon.com/">Flaticon</a>, <a href="https://ionic.io/ionicons">Ion Icon</a> and <a href="https://icons8.com/">Icons8</a>.
+      <p class="footer-updated">Last updated: {{ site.time | date: "%B %-d, %Y" }}</p>
+      <p>
+        Template inspired by <a href="https://github.com/Ksound22/developer-portfolio">developer-portfolio</a>.
+        Timeline built with <a href="https://apexcharts.com/">ApexCharts</a>.
+        Icons from <a href="https://www.flaticon.com/">Flaticon</a>,
+        <a href="https://ionic.io/ionicons">Ionicons</a> and <a href="https://icons8.com/">Icons8</a>.
+      </p>
     </footer>
 
     <!-- Website scripts -->

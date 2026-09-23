@@ -184,9 +184,63 @@ nav a:hover {
 .socials {
   display: flex;
   flex-direction: column;
+  gap: 0.35rem;
   position: fixed;
   right: 1%;
   bottom: 50%;
+}
+
+/*
+  Animated icons : the still first frame is shown by default and the animated
+  GIF only while the pointer is over the icon (or while it has keyboard focus),
+  never for visitors who ask for reduced motion.
+*/
+.social-link,
+.scroll-up {
+  display: block;
+  border: 0;
+  cursor: pointer;
+  background-color: transparent;
+  background-image: var(--icon-static);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.social-link:hover,
+.social-link:focus-visible,
+.scroll-up:hover,
+.scroll-up:focus-visible {
+  background-image: var(--icon-animated);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .social-link:hover,
+  .social-link:focus-visible,
+  .scroll-up:hover,
+  .scroll-up:focus-visible {
+    background-image: var(--icon-static);
+  }
+}
+
+.social-link {
+  width: 2rem;
+  height: 2rem;
+}
+
+.social-link--linkedin {
+  --icon-static: url("../images/icons/icons8-linkedin-circled-static.png");
+  --icon-animated: url("../images/icons/icons8-linkedin-circled.gif");
+}
+
+.social-link--github {
+  --icon-static: url("../images/icons/icons8-github-static.png");
+  --icon-animated: url("../images/icons/icons8-github.gif");
+}
+
+.social-link--email {
+  --icon-static: url("../images/icons/icons8-secured-letter-static.png");
+  --icon-animated: url("../images/icons/icons8-secured-letter.gif");
 }
 
 .socicon {
@@ -197,13 +251,11 @@ nav a:hover {
 
 /* Scroll to top button */
 .scroll-up {
+  --icon-static: url("../images/icons/icons8-upward-arrow-static.png");
+  --icon-animated: url("../images/icons/icons8-upward-arrow.gif");
   position: fixed;
   right: 0.5%;
   bottom: 3%;
-  cursor: pointer;
-}
-
-.up-arrow {
   width: 3rem;
   height: 3rem;
 }
@@ -219,6 +271,27 @@ footer {
 /* Footer section ends */
 
 /* General (utilities) */
+.nav-link.active {
+  color: var(--secondary-color);
+  border-bottom: 2px solid var(--secondary-color);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.footer-updated {
+  font-weight: var(--bold-font);
+  margin-bottom: 0.5rem;
+}
+
 .icon-card {
   background-color: #fff;
   border-radius: 11px;
