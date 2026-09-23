@@ -7,7 +7,13 @@ socialActivate: true
     <section class="about" id="about">
       <h2>More about me :</h2>
       <p>
-        I'm a student at the Université de Montréal (UdeM), in my 3rd year of the Bachelor of Mathematics and Computer Science program.<br>
+        I am a PhD student in computer science at the Université de Montréal (UdeM), in operations research,
+        supervised by <a href="https://margaridacarvalho.org/">Margarida Carvalho</a> and
+        <a href="https://utsav19.github.io/">Utsav Sadana</a>.
+        My thesis is about robust and risk-averse integer programming games.<br>
+        Before that I completed a master's degree in operations research at the UdeM (2024-2026), on the optimal
+        placement of sensors to predict environmental data over a region, and a bachelor's degree in mathematics
+        and computer science (2021-2024).<br>
         I am a French citizen with permanent resident status in Canada.<br>
         I love traveling, manga and computer science.<br>
         <a href="{{ site.url }}/assets/doc/CV_VF_Mael.pdf">Mon CV (version française)</a><br>
@@ -35,9 +41,9 @@ socialActivate: true
             {% endfor %}
       </div>
     </section>
-    {% assign sections = "experience,projects,education,awards" | split: ',' %}
-    {% assign sectionsText = "My recent experiences,My recent personal projects,Education,My recents awards" | split: ',' %}
-    {% for index in (0..3) %}
+    {% assign sections = "experience,conferences,teaching,projects,education,awards" | split: ',' %}
+    {% assign sectionsText = "My recent experiences,My recent talks and posters,My teaching,My recent personal projects,My education,My recent awards" | split: ',' %}
+    {% for index in (0..5) %}
         <!-- {{ sections[index] }} section -->
         <section class="cards" id="{{ sections[index] }}">
         <h2 class="cards-title">{{ sectionsText[index] }}</h2>

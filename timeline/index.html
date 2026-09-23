@@ -2,8 +2,8 @@
 layout: timeline
 ---
 
-{% assign sections = "experience,projects,education,awards" | split: ',' %}
-{% for index in (0..3) %}
+{% assign sections = "experience,conferences,teaching,projects,education,awards" | split: ',' %}
+{% for index in (0..5) %}
         {% assign nameSection = sections[index] %}
         [
         {% for post in site.categories[nameSection] %}
